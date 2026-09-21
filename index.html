@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.Shop - প্রিমিয়াম ই-কমার্স মার্কেটপ্লেস</title>
+    <title>M.Shop - সবকিছু এখানে</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -437,10 +437,36 @@
         </div>
     </div>
 
+    <!-- Firebase SDK স্ক্রিপ্ট (Type="module") -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmbk4Zo3Ryt0x2wDkTrWIsfE02Nf6Jo18",
+            authDomain: "mshop-d56dc.firebaseapp.com",
+            projectId: "mshop-d56dc",
+            storageBucket: "mshop-d56dc.firebasestorage.app",
+            messagingSenderId: "777203245638",
+            appId: "1:777203245638:web:901c9508627b53be556047",
+            measurementId: "G-L06X7FEN1E"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // গ্লোবালি ডাটাবেস ফাংশন ব্যবহারের জন্য উইন্ডোতে এসাইন করা হলো
+        window.db = db;
+        window.collection = collection;
+        window.addDoc = addDoc;
+
+        console.log("Firebase Successfully Connected!");
+    </script>
+
     <script>
         const products = [
             // --- Men's Fashion (5 Products) ---
-            { id: 1, name: "প্রিমিয়াম ক্যাজুয়াল ফুল স্লিভ শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1200, price: "৳ ১,২০০", oldPrice: "৳ ১,৫০০", tag: "নতুন", rating: 32, hasSize: true, sizes: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80", desc: "আরামদায়ক কটন ফ্যাব্রিক দিয়ে তৈরি আকর্ষণীয় ক্যাজুয়াল শার্ট।" },
+            { id: 1, name: "প্রিমিয়াম ক্যাজুয়াল ফুল স্লিভ শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1200, price: "৳ ১,২০০", tag: "নতুন", rating: 32, hasSize: true, sizes: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80", desc: "আরামদায়ক কটন ফ্যাব্রিক দিয়ে তৈরি আকর্ষণীয় ক্যাজুয়াল শার্ট।" },
             { id: 2, name: "মেনস ক্লাসিক ফরমাল সুজ", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 2200, price: "৳ ২,২০০", oldPrice: "৳ ২,৬০০", tag: "হট সেল", rating: 28, hasSize: true, sizes: ["40", "41", "42", "43", "44"], image: "https://images.unsplash.com/photo-1533867617858-e7d97e0afd8b?auto=format&fit=crop&w=500&q=80", desc: "অফিস বা যেকোনো ফরমাল ইভেন্টের জন্য প্রিমিয়াম লেদার সুজ।" },
             { id: 3, name: "স্টাইলিশ ডেনিম জিন্স প্যান্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1450, price: "৳ ১,৪৫০", oldPrice: "৳ ১,৮০০", tag: "১৫% ছাড়", rating: 45, hasSize: true, sizes: ["28", "30", "32", "34"], image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=500&q=80", desc: "আধুনিক ফিটিং ও টেকসই ডেনিম কাপড়ের স্টাইলিশ জিন্স।" },
             { id: 4, name: "কটন সামার টি-শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 550, price: "৳ ৫৫০", oldPrice: "", tag: "জনপ্রিয়", rating: 50, hasSize: true, sizes: ["M", "L", "XL", "XXL"], image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80", desc: "গরমের দিনে পরার জন্য অত্যন্ত আরামদায়ক ও সফট সুতি টি-শার্ট।" },
@@ -471,14 +497,14 @@
             { id: 21, name: "স্মার্ট হ্যান্ড ব্লেন্ডার ও চপার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 2150, price: "৳ ২,১৫০", oldPrice: "৳ ২,৫০০", tag: "১০% ছাড়", rating: 24, hasSize: false, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=500&q=80", desc: "রান্নার কাজ সহজ করতে অত্যন্ত শক্তিশালী ও টেকসই স্মার্ট ব্লেন্ডার।" },
             { id: 22, name: "ইলেকট্রিক মাল্টিপারপাস রাইস কুকার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 3200, price: "৳ ৩,২০০", oldPrice: "৳ ৩,৮০০", tag: "হট সেল", rating: 55, hasSize: false, image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80", desc: "খাবার গরম রাখা এবং দ্রুত রান্না করার প্রিমিয়াম ইলেকট্রিক কুকার।" },
             { id: 23, name: "পোর্টেবল ইউএসবি মিনি জুসার ব্লেন্ডার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,৩০০", tag: "নতুন", rating: 43, hasSize: false, image: "https://images.unsplash.com/photo-1570222094114-d074f7e24555?auto=format&fit=crop&w=500&q=80", desc: "যেকোনো জায়গায় ফ্রেশ জুস তৈরি করার পোর্টেবল জুসার কাপ।" },
-            { id: 24, name: "অটোমেটিক ইলেকট্রিক কেটলি", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 1150, price: "৳ ১,১৫০", oldPrice: "৳ ১,৪০০", tag: "জনপ্রিয়", rating: 62, hasSize: false, image: "https://images.unsplash.com/photo-1594807046599-155452e825a0?auto=format&fit=crop&w=500&q=80", desc: "দ্রুত পানি গরম করার স্টেইনলেস স্টিলের অটোমেটিক ইলেকট্রিক কেটলি।" },
+            { id: 24, name: "অটোমেটিক ইলেকট্রিক কেটলি", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 1150, price: "৳ ১,১৫০", tag: "জনপ্রিয়", rating: 62, hasSize: false, image: "https://images.unsplash.com/photo-1594807046599-155452e825a0?auto=format&fit=crop&w=500&q=80", desc: "দ্রুত পানি গরম করার স্টেইনলেস স্টিলের অটোমেটিক ইলেকট্রিক কেটলি।" },
             { id: 25, name: "ওয়াল মাউন্টেবল মাল্টি-পারপাস র‍্যাক", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 590, price: "৳ ৫৯০", oldPrice: "", tag: "সেরা", rating: 31, hasSize: false, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=500&q=80", desc: "ঘর গুছিয়ে রাখার জন্য সহজে দেয়ালে লাগানোর মতো প্লাস্টিক র‍্যাক।" },
 
             // --- Health & Beauty (5 Products) ---
             { id: 26, name: "হার্বাল ব্রাইটনিং ফেসওয়াশ", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 450, price: "৳ ৪৫০", oldPrice: "", tag: "সেরা", rating: 56, hasSize: false, image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80", desc: "ত্বকের উজ্জ্বলতা বৃদ্ধি ও গভীর থেকে ময়লা পরিষ্কার করার ন্যাচারাল ফেসওয়াশ।" },
             { id: 27, name: "ভিটামিন সি ফেস সিরাম", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "নতুন", rating: 68, hasSize: false, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80", desc: "ত্বকের দাগ দূর করে দীপ্তিময় ও গ্লোয়িং লুক এনে দেয়।" },
             { id: 28, name: "অ্যালোভেরা সুদিং জেল", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 380, price: "৳ ৩৮০", oldPrice: "৳ ৫০০", tag: "জনপ্রিয়", rating: 90, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "প্রাকৃতিক অ্যালোভেরা নির্যাস সমৃদ্ধ ময়েশ্চারাইজিং সুদিং জেল।" },
-            { id: 29, name: "হেয়ার ফল কন্ট্রোল অর্গানিক শ্যাম্পু", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 680, price: "৳ ৬৮০", oldPrice: "৳ ৮০০", tag: "হট সেল", rating: 47, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "চুল পড়া রোধ ও চুল সিল্কি করতে কার্যকরী ভেষজ শ্যাম্পু।" },
+            { id: 29, name: "হেয়ার ফল কন্ট্রোল অর্গানিক শ্যাম্পু", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 680, price: "৳ ৬৮০", oldPrice: "৳ ৮০ এবং", tag: "হট সেল", rating: 47, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "চুল পড়া রোধ ও চুল সিল্কি করতে কার্যকরী ভেষজ শ্যাম্পু।" },
             { id: 30, name: "ম্যাট ফিনিশ লিপস্টিক ও মেকআপ কিট", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 990, price: "৳ ৯৯০", oldPrice: "৳ ১,৩০০", tag: "ছাড়", rating: 53, hasSize: false, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80", desc: "দীর্ঘস্থায়ী এবং ওয়াটারপ্রুফ প্রিমিয়াম কোয়ালিটি মেকআপ কিট।" },
 
             // --- Sports & Outdoor (5 Products) ---
@@ -1030,13 +1056,49 @@
             return prefix + toBanglaNum(timeNum) + toBanglaNum(randomNum);
         }
 
-        function finalizeOrder() {
+        // ফায়ারবেসে অর্ডার সেভ করার প্রধান ফাংশন
+        async function finalizeOrder() {
             if(cart.length === 0) {
                 alert('আপনার কার্টে কোনো প্রডাক্ট নেই!');
                 return;
             }
 
             const uniqueOrderNo = generateUniqueBanglaOrderNumber();
+            
+            // সাবটোটাল ও মোট হিসাব বের করা
+            let subtotal = cart.reduce((sum, item) => sum + (item.priceNum * item.qty), 0);
+            let grandTotal = subtotal + 60;
+
+            // ফায়ারবেসে পাঠানোর জন্য অর্ডার অবজেক্ট তৈরি
+            const orderData = {
+                orderNo: uniqueOrderNo,
+                customer: {
+                    name: tempOrderData.name,
+                    phone: '+88' + tempOrderData.phone,
+                    address: tempOrderData.address
+                },
+                items: cart.map(item => ({
+                    productId: item.id,
+                    name: item.name,
+                    price: item.priceNum,
+                    quantity: item.qty,
+                    size: item.selectedSize || 'N/A'
+                })),
+                subtotal: subtotal,
+                deliveryCharge: 60,
+                grandTotal: grandTotal,
+                orderDate: new Date().toISOString()
+            };
+
+            try {
+                // ফায়ারবেস ডাটাবেসের 'orders' কালেকশনে ডাটা সেভ করা হচ্ছে
+                await window.addDoc(window.collection(window.db, "orders"), orderData);
+                console.log("Order successfully saved to Firebase!");
+            } catch (error) {
+                console.error("Error adding order to Firebase: ", error);
+                alert("দুঃখিত, অর্ডারটি ডাটাবেসে সংরক্ষণ করতে সমস্যা হয়েছে!");
+                return;
+            }
             
             cart = [];
             updateCartUI();
