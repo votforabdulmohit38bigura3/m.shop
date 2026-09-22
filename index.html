@@ -1694,6 +1694,7 @@
         function saveAdminProduct(e) {
             e.preventDefault();
             const editId = document.getElementById('editProductId').value;
+            
             const name = document.getElementById('adminProdName').value;
             const category = document.getElementById('adminProdCategory').value;
             const categoryName = document.getElementById('adminProdCategoryName').value;
@@ -1706,33 +1707,21 @@
             const desc = document.getElementById('adminProdDesc').value;
 
             if(editId) {
-                let p = products.find(item => item.id == editId);
-                if(p) {
-                    p.name = name;
-                    p.category = category;
-                    p.categoryName = categoryName;
-                    p.priceNum = priceNum;
-                    p.price = price;
-                    p.oldPrice = oldPrice;
-                    p.tag = tag;
-                    p.rating = rating;
-                    p.image = image;
-                    p.desc = desc;
+                // Edit Existing Product
+                const index = products.findIndex(item => item.id == editId);
+                if(index > -1) {
+                    products[index] = {
+                        ...products[index],
+                        name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc
+                    };
                 }
                 alert('প্রোডাক্ট সফলভাবে আপডেট করা হয়েছে!');
             } else {
+                // Add New Product
+                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
                 const newProduct = {
-                    id: Date.now(),
-                    name,
-                    category,
-                    categoryName,
-                    priceNum,
-                    price,
-                    oldPrice,
-                    tag,
-                    rating,
-                    image,
-                    desc,
+                    id: newId,
+                    name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc,
                     hasSize: false
                 };
                 products.unshift(newProduct);
@@ -1741,22 +1730,21 @@
 
             closeAdminProductFormModal();
             loadAdminProducts();
-            applyFilterAndSort();
+            applyFilterAndSort(); // মূল সাইট বা কাস্টমার পেজে প্রোডাক্ট ইনস্ট্যান্ট আপডেট করার জন্য
         }
 
         function deleteProduct(productId) {
             if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি ডিলিট করতে চান?')) {
                 products = products.filter(item => item.id !== productId);
                 loadAdminProducts();
-                applyFilterAndSort();
-                alert('প্রোডাক্ট ডিলিট করা হয়েছে!');
+                applyFilterAndSort(); // মূল পেজ থেকে রিমুভ করার জন্য
+                alert('প্রোডাক্ট সফলভাবে ডিলিট করা হয়েছে!');
             }
         }
 
-        window.onload = function() {
-            checkUserAuthUI();
-            applyFilterAndSort();
-        };
-    </script>>
+        // Initial Load on Page Startup
+        applyFilterAndSort();
+        checkUserAuthUI();
+    </script>
 </body>
 </html>
