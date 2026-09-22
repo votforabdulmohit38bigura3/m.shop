@@ -1693,7 +1693,7 @@
 
             closeAdminProductFormModal();
             loadAdminProducts();
-            applyFilterAndSort(); // মূল পেজের প্রোডাক্ট গ্রিড রিফ্রেশ করার জন্য এটি যোগ করা হয়েছে
+            applyFilterAndSort(); // মূল পেজের প্রোডাক্ট গ্রিড রিফ্রেশ ও অটো আপডেট করার জন্য
             alert('সফলভাবে সংরক্ষিত হয়েছে!');
         }
 
@@ -1701,7 +1701,7 @@
             if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি মুছে ফেলতে চান?')) {
                 products = products.filter(p => p.id !== id);
                 loadAdminProducts();
-                applyFilterAndSort(); // মূল পেজের প্রোডাক্ট গ্রিড রিফ্রেশ করার জন্য এটি যোগ করা হয়েছে
+                applyFilterAndSort(); // মূল পেজের প্রোডাক্ট গ্রিড রিফ্রেশ ও অটো আপডেট করার জন্য
             }
         }
 
