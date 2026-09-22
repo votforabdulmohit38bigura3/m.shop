@@ -1568,90 +1568,62 @@
 
                 container.innerHTML = "";
                 orders.forEach(ord => {
-                    let itemsHtml = ord.items.map(i => `
-                        <div class="flex items-center space-x-2 bg-slate-900 p-2 rounded-xl border border-slate-800">
-                            <img src="${i.image || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=100&q=80'}" class="w-10 h-10 object-cover rounded-lg">
-                            <div class="flex-1 min-w-0">
-                                <p class="font-bold text-xs text-slate-200 truncate">${i.name}</p>
-                                <p class="text-[10px] text-slate-400">${i.size !== 'N/A' ? 'সাইজ: ' + i.size + ' | ' : ''}পরিমাণ: ${i.quantity} | মূল্য: ৳ ${i.price * i.quantity}</p>
-                            </div>
-                        </div>
-                    `).join('');
-
-                    let currentStatus = ord.orderStatus || "পেন্ডিং";
-                    
+                    let itemsHtml = ord.items.map(i => `<div class="text-xs text-slate-300">• ${i.name} (সাইজ: ${i.size}, পরিমাণ: ${i.quantity}, দাম: ৳ ${i.price})</div>`).join('');
                     container.innerHTML += `
-                        <div class="bg-slate-950 p-5 rounded-2xl shadow-md border border-slate-800 space-y-3">
-                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800 pb-3 gap-2">
-                                <span class="font-bold text-indigo-400 text-xs"><i class="fa-solid fa-receipt mr-1"></i> সিরিয়াল: ${ord.orderNo}</span>
-                                
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-[11px] text-slate-400">${new Date(ord.orderDate).toLocaleString('bn-BD')}</span>
-                                    <div class="flex items-center space-x-1.5">
-                                        <label class="text-[11px] font-bold text-slate-300">স্ট্যাটাস:</label>
-                                        <select onchange="updateOrderStatus('${ord.id}', this.value)" class="bg-slate-900 border border-slate-700 text-xs text-indigo-300 font-bold rounded-lg px-2.5 py-1.5 outline-none focus:border-indigo-500">
-                                            <option value="পেন্ডিং" ${currentStatus === 'পেন্ডিং' ? 'selected' : ''}>পেন্ডিং</option>
-                                            <option value="কনফার্মড" ${currentStatus === 'কনফার্মড' ? 'selected' : ''}>কনফার্মড</option>
-                                            <option value="শিপড" ${currentStatus === 'শিপড' ? 'selected' : ''}>শিপড</option>
-                                            <option value="ডেলিভারড" ${currentStatus === 'ডেলিভারড' ? 'selected' : ''}>ডেলিভারড</option>
-                                            <option value="ক্যান্সেলড" ${currentStatus === 'ক্যান্সেলড' ? 'selected' : ''}>ক্যান্সেলড</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 bg-slate-900/60 p-3.5 rounded-xl text-xs border border-slate-800/60">
+                        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3">
+                            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
                                 <div>
-                                    <p class="font-bold text-slate-200">গ্রাহকের নাম: ${ord.customer.name}</p>
-                                    <p class="text-slate-300 mt-0.5">মোবাইল: ${ord.customer.phone}</p>
-                                    <p class="text-slate-300 mt-0.5">এরিয়া: ${ord.customer.deliveryArea}</p>
+                                    <span class="text-indigo-400 font-bold text-xs">${ord.orderNo}</span>
+                                    <p class="text-[11px] text-slate-400">তারিখ: ${new Date(ord.orderDate).toLocaleString()}</p>
                                 </div>
-                                <div>
-                                    <p class="text-slate-300">ঠিকানা: ${ord.customer.address}</p>
-                                    <p class="font-bold text-indigo-400 mt-1">সর্বমোট প্রদেয়: ৳ ${ord.grandTotal}</p>
-                                </div>
+                                <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-lg text-xs font-bold">${ord.orderStatus}</span>
                             </div>
-                            <div class="space-y-1.5">
-                                <p class="text-xs font-bold text-slate-300">অর্ডারকৃত পণ্যসমূহ:</p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">${itemsHtml}</div>
+                            <div class="text-xs text-slate-300 space-y-1">
+                                <p><strong>গ্রাহক:</strong> ${ord.customer.name} (${ord.customer.phone})</p>
+                                <p><strong>ঠিকানা:</strong> ${ord.customer.address} [${ord.customer.deliveryArea}]</p>
+                            </div>
+                            <div class="bg-slate-900 p-2.5 rounded-xl space-y-1">
+                                <p class="text-[11px] font-bold text-slate-400">প্রোডাক্টসমূহ:</p>
+                                ${itemsHtml}
+                            </div>
+                            <div class="flex justify-between items-center pt-1 text-xs font-bold">
+                                <span class="text-slate-300">সর্বমোট প্রদেয়: <span class="text-indigo-400">৳ ${ord.grandTotal}</span></span>
+                                <button onclick="deleteAdminOrder('${ord.id}')" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 px-3 py-1.5 rounded-xl transition border border-rose-500/20">অর্ডার ডিলিট</button>
                             </div>
                         </div>
                     `;
                 });
-            } catch (e) {
+            } catch(e) {
                 console.error(e);
-                container.innerHTML = `<p class="text-center text-xs text-rose-500 py-6">অর্ডার লোড করতে সমস্যা হয়েছে।</p>`;
+                container.innerHTML = `<p class="text-center text-xs text-rose-400 py-6">অর্ডার লোড করতে সমস্যা হয়েছে।</p>`;
             }
         }
 
-        async function updateOrderStatus(orderDocId, newStatus) {
-            try {
-                const orderRef = window.doc(window.db, "orders", orderDocId);
-                await window.updateDoc(orderRef, { orderStatus: newStatus });
-                alert('অর্ডার স্ট্যাটাস সফলভাবে আপডেট করা হয়েছে!');
-            } catch (error) {
-                console.error(error);
-                alert('স্ট্যাটাস আপডেট করতে সমস্যা হয়েছে!');
+        async function deleteAdminOrder(orderId) {
+            if(confirm('আপনি কি নিশ্চিতভাবে এই অর্ডারটি ডিলিট করতে চান?')) {
+                try {
+                    await window.deleteDoc(window.doc(window.db, "orders", orderId));
+                    loadAdminOrders();
+                    alert('অর্ডার সফলভাবে ডিলিট করা হয়েছে!');
+                } catch(e) {
+                    console.error(e);
+                    alert('অর্ডার ডিলিট করতে সমস্যা হয়েছে।');
+                }
             }
         }
 
         function loadAdminProducts() {
             const container = document.getElementById('adminProductsContainer');
             container.innerHTML = "";
-
             products.forEach(p => {
                 container.innerHTML += `
-                    <div class="flex items-center justify-between bg-slate-950 p-3.5 rounded-2xl border border-slate-800 shadow-sm">
-                        <div class="flex items-center space-x-3">
-                            <img src="${p.image}" class="w-12 h-12 object-cover rounded-xl border border-slate-800">
-                            <div>
-                                <h4 class="font-bold text-xs text-slate-200 line-clamp-1">${p.name}</h4>
-                                <span class="text-indigo-400 font-bold text-xs">${p.price}</span>
-                            </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 flex items-center justify-between gap-3">
+                        <img src="${p.image}" class="w-12 h-12 rounded-xl object-cover flex-shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-slate-200 truncate">${p.name}</h4>
+                            <p class="text-[11px] text-indigo-400 font-bold">${p.price}</p>
                         </div>
-                        <div class="flex items-center space-x-1.5">
-                            <button onclick="openEditProduct(${p.id})" class="bg-indigo-900/50 text-indigo-300 hover:bg-indigo-900 px-3 py-1.5 rounded-lg text-xs font-bold transition">এডিট</button>
-                            <button onclick="deleteProduct(${p.id})" class="bg-rose-950/50 text-rose-400 hover:bg-rose-900 px-3 py-1.5 rounded-lg text-xs font-bold transition">ডিলিট</button>
-                        </div>
+                        <button onclick="deleteLocalProduct(${p.id})" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 p-2 rounded-xl text-xs transition border border-rose-500/20"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 `;
             });
@@ -1665,27 +1637,6 @@
             document.body.classList.add('popup-active');
         }
 
-        function openEditProduct(productId) {
-            const p = products.find(item => item.id === productId);
-            if(!p) return;
-
-            document.getElementById('adminProductFormTitle').innerText = "প্রোডাক্ট এডিট করুন";
-            document.getElementById('editProductId').value = p.id;
-            document.getElementById('adminProdName').value = p.name;
-            document.getElementById('adminProdCategory').value = p.category;
-            document.getElementById('adminProdCategoryName').value = p.categoryName;
-            document.getElementById('adminProdPriceNum').value = p.priceNum;
-            document.getElementById('adminProdPriceText').value = p.price;
-            document.getElementById('adminProdOldPrice').value = p.oldPrice || "";
-            document.getElementById('adminProdTag').value = p.tag || "";
-            document.getElementById('adminProdRating').value = p.rating || 30;
-            document.getElementById('adminProdImage').value = p.image;
-            document.getElementById('adminProdDesc').value = p.desc || "";
-
-            document.getElementById('adminProductFormModal').classList.remove('hidden');
-            document.body.classList.add('popup-active');
-        }
-
         function closeAdminProductFormModal() {
             document.getElementById('adminProductFormModal').classList.add('hidden');
             document.body.classList.remove('popup-active');
@@ -1693,7 +1644,6 @@
 
         function saveAdminProduct(e) {
             e.preventDefault();
-            const editId = document.getElementById('editProductId').value;
             const name = document.getElementById('adminProdName').value;
             const category = document.getElementById('adminProdCategory').value;
             const categoryName = document.getElementById('adminProdCategoryName').value;
@@ -1705,111 +1655,31 @@
             const image = document.getElementById('adminProdImage').value;
             const desc = document.getElementById('adminProdDesc').value;
 
-            if(editId) {
-                let p = products.find(item => item.id == editId);
-                if(p) {
-                    p.name = name;
-                    p.category = category;
-                    p.categoryName = categoryName;
-                    p.priceNum = priceNum;
-                    p.price = price;
-                    p.oldPrice = oldPrice;
-                    p.tag = tag;
-                    p.rating = rating;
-                    p.image = image;
-                    p.desc = desc;
-                }
-                alert('প্রোডাক্ট সফলভাবে আপডেট করা হয়েছে!');
-            } else {
-                const newProduct = {
-                    id: Date.now(),
-                    name,
-                    category,
-                    categoryName,
-                    priceNum,
-                    price,
-                    oldPrice,
-                    tag,
-                    rating,
-                    image,
-                    desc,
-                    hasSize: false
-                };
-                products.unshift(newProduct);
-                alert('নতুন প্রোডাক্ট সফলভাবে যুক্ত করা হয়েছে!');
-            }
+            const newProd = {
+                id: Date.now(),
+                name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc,
+                hasSize: true, sizes: ["M", "L", "XL"]
+            };
 
+            products.unshift(newProd);
             closeAdminProductFormModal();
             loadAdminProducts();
             applyFilterAndSort();
+            alert('সফলভাবে নতুন প্রডাক্ট যুক্ত করা হয়েছে!');
         }
 
-                function deleteProduct(productId) {
-            if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি ডিলিট করতে চান?')) {
-                products = products.filter(item => item.id !== productId);
+        function deleteLocalProduct(id) {
+            if(confirm('আপনি কি এই প্রডাক্টটি ডিলিট করতে চান?')) {
+                products = products.filter(p => p.id !== id);
                 loadAdminProducts();
                 applyFilterAndSort();
-                alert('প্রোডাক্ট ডিলিট করা হয়েছে!');
+                alert('প্রডাক্ট ডিলিট করা হয়েছে!');
             }
         }
 
-        function saveAdminProduct(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editProductId').value;
-            const name = document.getElementById('adminProdName').value;
-            const category = document.getElementById('adminProdCategory').value;
-            const categoryName = document.getElementById('adminProdCategoryName').value;
-            const priceNum = Number(document.getElementById('adminProdPriceNum').value);
-            const price = document.getElementById('adminProdPriceText').value;
-            const oldPrice = document.getElementById('adminProdOldPrice').value;
-            const tag = document.getElementById('adminProdTag').value;
-            const rating = Number(document.getElementById('adminProdRating').value);
-            const image = document.getElementById('adminProdImage').value;
-            const desc = document.getElementById('adminProdDesc').value;
-
-            if(editId) {
-                const p = products.find(item => item.id == editId);
-                if(p) {
-                    p.name = name;
-                    p.category = category;
-                    p.categoryName = categoryName;
-                    p.priceNum = priceNum;
-                    p.price = price;
-                    p.oldPrice = oldPrice;
-                    p.tag = tag;
-                    p.rating = rating;
-                    p.image = image;
-                    p.desc = desc;
-                }
-                alert('প্রোডাক্ট সফলভাবে আপডেট করা হয়েছে!');
-            } else {
-                const newProduct = {
-                    id: Date.now(),
-                    name,
-                    category,
-                    categoryName,
-                    priceNum,
-                    price,
-                    oldPrice,
-                    tag,
-                    rating,
-                    hasSize: false,
-                    image,
-                    desc
-                };
-                products.unshift(newProduct);
-                alert('নতুন প্রডাক্ট সফলভাবে যুক্ত করা হয়েছে!');
-            }
-
-            closeAdminProductFormModal();
-            loadAdminProducts();
-            applyFilterAndSort();
-        }
-
-        window.onload = function() {
-            checkUserAuthUI();
-            applyFilterAndSort();
-        };
+        // Initial Load
+        applyFilterAndSort();
+        checkUserAuthUI();
     </script>
 </body>
 </html>
