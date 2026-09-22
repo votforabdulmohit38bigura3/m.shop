@@ -360,7 +360,7 @@
             </button>
             <div id="accountModalBody">
                 <h3 class="text-lg font-bold text-slate-900 mb-1"><i class="fa-solid fa-user-circle text-indigo-600 mr-2"></i>গ্রাহক অ্যাকাউন্ট</h3>
-                <p class="text-xs text-slate-500 mb-4">অর্ডার হিস্টری দেখতে আপনার মোবাইল নম্বর দিয়ে লগইন করুন</p>
+                <p class="text-xs text-slate-500 mb-4">অর্ডার হিস্টরি দেখতে আপনার মোবাইল নম্বর দিয়ে লগইন করুন</p>
                 
                 <form id="loginForm" onsubmit="handleUserLogin(event)" class="space-y-3.5">
                     <div>
@@ -1693,7 +1693,7 @@
 
             closeAdminProductFormModal();
             loadAdminProducts();
-            applyFilterAndSort();
+            applyFilterAndSort(); // মূল পেজের প্রোডাক্ট গ্রিড রিফ্রেশ করার জন্য এটি যোগ করা হয়েছে
             alert('সফলভাবে সংরক্ষিত হয়েছে!');
         }
 
@@ -1701,7 +1701,7 @@
             if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি মুছে ফেলতে চান?')) {
                 products = products.filter(p => p.id !== id);
                 loadAdminProducts();
-                applyFilterAndSort();
+                applyFilterAndSort(); // মূল পেজের প্রোডাক্ট গ্রিড রিফ্রেশ করার জন্য এটি যোগ করা হয়েছে
             }
         }
 
