@@ -347,7 +347,6 @@
         <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800 text-center text-xs text-slate-500">
             <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
                 <p>&copy; ২০২৬ M.Shop. সর্বস্বত্ব সংরক্ষিত।</p>
-                <!-- অ্যাডমিন প্যানেল লেখা হাইড করে শুধুমাত্র সিক্রেট লক সিম্বল রাখা হয়েছে -->
                 <button onclick="openAdminLoginModal()" class="bg-slate-800/50 hover:bg-slate-800 text-slate-600 hover:text-slate-300 w-8 h-8 rounded-full transition flex items-center justify-center text-xs" title="System Settings">
                     <i class="fa-solid fa-lock"></i>
                 </button>
@@ -355,7 +354,7 @@
         </footer>
     </div>
 
-    <!-- Full Screen Separate Admin Dashboard View (Initially Hidden) -->
+    <!-- Full Screen Separate Admin Dashboard View -->
     <div id="adminDashboardPage" class="hidden min-h-screen bg-slate-900 text-slate-100 flex flex-col">
         <div class="bg-slate-950 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -373,7 +372,6 @@
             </button>
         </div>
 
-        <!-- Admin Nav Tabs -->
         <div class="flex border-b border-slate-800 bg-slate-900 px-6 pt-3 space-x-6">
             <button onclick="switchAdminTab('orders')" id="adminTabOrdersBtn" class="py-2.5 px-4 font-bold text-xs border-b-2 border-indigo-500 text-indigo-400 transition flex items-center space-x-2">
                 <i class="fa-solid fa-box-archive"></i> <span>অর্ডার মনিটরিং</span>
@@ -383,9 +381,7 @@
             </button>
         </div>
 
-        <!-- Admin Tab Content Area -->
         <div class="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-900">
-            <!-- Orders Tab -->
             <div id="adminOrdersTabContent" class="space-y-4 max-w-5xl mx-auto">
                 <div class="flex justify-between items-center mb-2">
                     <h4 class="font-bold text-slate-200 text-sm">সকল কাস্টমার অর্ডারসমূহ ও স্ট্যাটাস ম্যানেজমেন্ট</h4>
@@ -398,7 +394,6 @@
                 </div>
             </div>
 
-            <!-- Products Tab -->
             <div id="adminProductsTabContent" class="space-y-4 max-w-5xl mx-auto hidden">
                 <div class="flex justify-between items-center mb-2">
                     <h4 class="font-bold text-slate-200 text-sm">স্টোরের সকল প্রোডাক্ট</h4>
@@ -406,9 +401,7 @@
                         <i class="fa-solid fa-plus mr-1"></i> নতুন প্রডাক্ট যুক্ত করুন
                     </button>
                 </div>
-                <div id="adminProductsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <!-- Admin products list -->
-                </div>
+                <div id="adminProductsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
             </div>
         </div>
     </div>
@@ -1461,7 +1454,7 @@
                 subtotal: subtotal,
                 deliveryCharge: deliveryFee,
                 grandTotal: grandTotal,
-                orderStatus: "পেন্ডিং", // নতুন অর্ডার স্ট্যাটাস ফিল্ড
+                orderStatus: "পেন্ডিং",
                 orderDate: new Date().toISOString()
             };
 
@@ -1656,8 +1649,8 @@
                             </div>
                         </div>
                         <div class="flex items-center space-x-1.5">
-                            <button onclick="openEditProduct(${p.id})" class="bg-indigo-900/50 text-indigo-300 hover:bg-indigo-900 px-3 py-1.5 rounded-xl text-xs font-bold transition border border-indigo-700/50">এডিট</button>
-                            <button onclick="deleteProduct(${p.id})" class="bg-rose-950 text-rose-300 hover:bg-rose-900 px-3 py-1.5 rounded-xl text-xs font-bold transition border border-rose-900/50">মুছুন</button>
+                            <button onclick="openEditProduct(${p.id})" class="bg-indigo-900/50 text-indigo-300 hover:bg-indigo-900 px-3 py-1.5 rounded-lg text-xs font-bold transition">এডিট</button>
+                            <button onclick="deleteProduct(${p.id})" class="bg-rose-950/50 text-rose-400 hover:bg-rose-900 px-3 py-1.5 rounded-lg text-xs font-bold transition">ডিলিট</button>
                         </div>
                     </div>
                 `;
@@ -1669,11 +1662,13 @@
             document.getElementById('adminProductForm').reset();
             document.getElementById('editProductId').value = "";
             document.getElementById('adminProductFormModal').classList.remove('hidden');
+            document.body.classList.add('popup-active');
         }
 
-        function openEditProduct(id) {
-            const p = products.find(prod => prod.id === id);
+        function openEditProduct(productId) {
+            const p = products.find(item => item.id === productId);
             if(!p) return;
+
             document.getElementById('adminProductFormTitle').innerText = "প্রোডাক্ট এডিট করুন";
             document.getElementById('editProductId').value = p.id;
             document.getElementById('adminProdName').value = p.name;
@@ -1681,16 +1676,19 @@
             document.getElementById('adminProdCategoryName').value = p.categoryName;
             document.getElementById('adminProdPriceNum').value = p.priceNum;
             document.getElementById('adminProdPriceText').value = p.price;
-            document.getElementById('adminProdOldPrice').value = p.oldPrice || '';
-            document.getElementById('adminProdTag').value = p.tag || '';
-            document.getElementById('adminProdRating').value = p.rating || 30;
+            document.getElementById('adminProdOldPrice').value = p.oldPrice || "";
+            document.getElementById('adminProdTag').value = p.tag || "";
+            document.getElementById('adminProdRating').value = p.rating || 35;
             document.getElementById('adminProdImage').value = p.image;
-            document.getElementById('adminProdDesc').value = p.desc || '';
+            document.getElementById('adminProdDesc').value = p.desc || "";
+
             document.getElementById('adminProductFormModal').classList.remove('hidden');
+            document.body.classList.add('popup-active');
         }
 
         function closeAdminProductFormModal() {
             document.getElementById('adminProductFormModal').classList.add('hidden');
+            document.body.classList.remove('popup-active');
         }
 
         function saveAdminProduct(e) {
@@ -1708,7 +1706,7 @@
             const desc = document.getElementById('adminProdDesc').value;
 
             if(editId) {
-                let p = products.find(prod => prod.id == editId);
+                let p = products.find(item => item.id == editId);
                 if(p) {
                     p.name = name;
                     p.category = category;
@@ -1721,30 +1719,34 @@
                     p.image = image;
                     p.desc = desc;
                 }
+                alert('প্রোডাক্ট সফলভাবে আপডেট করা হয়েছে!');
             } else {
-                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+                const newId = products.length > 0 ? Math.max(...products.map(i => i.id)) + 1 : 1;
                 products.unshift({
                     id: newId,
-                    name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc, hasSize: false
+                    name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc,
+                    hasSize: false
                 });
+                alert('নতুন প্রডাক্ট সফলভাবে যুক্ত করা হয়েছে!');
             }
 
             closeAdminProductFormModal();
             loadAdminProducts();
-            applyFilterAndSort(); 
-            alert('সফলভাবে সংরক্ষিত হয়েছে!');
+            applyFilterAndSort();
         }
 
-        function deleteProduct(id) {
-            if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি মুছে ফেলতে চান?')) {
-                products = products.filter(p => p.id !== id);
+        function deleteProduct(productId) {
+            if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি ডিলিট করতে চান?')) {
+                products = products.filter(i => i.id !== productId);
                 loadAdminProducts();
-                applyFilterAndSort(); 
+                applyFilterAndSort();
+                alert('প্রোডাক্টটি ডিলিট করা হয়েছে!');
             }
         }
 
+        // Initialize application view
+        applyFilterAndSort();
         checkUserAuthUI();
-        displayProducts(products);
     </script>
 </body>
 </html>
