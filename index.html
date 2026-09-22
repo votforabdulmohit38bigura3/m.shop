@@ -12,13 +12,11 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* ব্যাকগ্রাউন্ড স্ক্রল বন্ধ করার ক্লাস */
         body.popup-active {
             overflow: hidden;
             height: 100vh;
         }
 
-        /* কার্ট আইকন অ্যানিমেশন স্টাইল */
         @keyframes bounceCart {
           0%, 100% { transform: translateY(0); }
           50% { transform: scale(1.2) rotate(10deg); }
@@ -27,7 +25,6 @@
           animation: bounceCart 0.4s ease;
         }
 
-        /* পপআপ স্টাইল */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -113,8 +110,11 @@
                 <span><i class="fa-solid fa-phone text-indigo-400 mr-1"></i> হেল্পলাইন: ০১৭৭৮-৯২১৯৮৪</span>
                 <span class="hidden md:inline"><i class="fa-solid fa-envelope text-indigo-400 mr-1"></i> support@mshop.com</span>
             </div>
-            <div class="flex space-x-4">
+            <div class="flex space-x-4 items-center">
                 <span class="bg-indigo-800 px-2 py-0.5 rounded text-[11px] font-medium">সারা দেশে ক্যাশ অন ডেলিভারি</span>
+                <button onclick="openAccountModal()" id="accountHeaderBtn" class="bg-indigo-700 hover:bg-indigo-600 text-white px-2.5 py-1 rounded text-[11px] font-bold transition">
+                    <i class="fa-solid fa-user mr-1"></i> <span id="accountBtnText">লগইন / একাউন্ট</span>
+                </button>
             </div>
         </div>
     </div>
@@ -164,7 +164,6 @@
         </div>
     </header>
 
-    <!-- হোমপেজ ব্যানার সেকশন (প্রফেশনাল অপ্টিমাইজড হাইট ও লেআউট) -->
     <section id="homeBannerSection" class="container mx-auto px-4 my-4 relative">
         <div id="sliderWrapper" 
              class="overflow-hidden rounded-3xl shadow-xl relative select-none cursor-grab active:cursor-grabbing"
@@ -177,7 +176,6 @@
              onmouseleave="dragEnd(event)">
             
             <div id="sliderTrack" class="flex transition-transform duration-500 ease-out">
-                <!-- স্লাইড ১ -->
                 <div class="min-w-full bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
                         <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">⚡ M.Shop মেগা সিজন ডিসকাউন্ট ২০২৬</span>
@@ -195,7 +193,6 @@
                     </div>
                 </div>
 
-                <!-- স্লাইড ২ -->
                 <div class="min-w-full bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
                         <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">🔥 ট্রেন্ডি ফ্যাশন কালেকশন</span>
@@ -213,7 +210,6 @@
                     </div>
                 </div>
 
-                <!-- স্লাইড ৩ -->
                 <div class="min-w-full bg-gradient-to-r from-purple-950 via-indigo-900 to-slate-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
                         <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">🌟 ইলেকট্রনিক্স ও গ্যাজেট মেলা</span>
@@ -231,7 +227,6 @@
                     </div>
                 </div>
 
-                <!-- স্লাইড ৪: বিউটি ও স্কিনকেয়ার -->
                 <div class="min-w-full bg-gradient-to-r from-pink-950 via-rose-900 to-indigo-950 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
                         <span class="bg-pink-500/40 border border-pink-400/30 text-pink-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">💎 গ্লোয়িং বিউটি ও স্কিনকেয়ার</span>
@@ -249,7 +244,6 @@
                     </div>
                 </div>
 
-                <!-- স্লাইড ৫: হোম গ্রোসারি ও ফুড -->
                 <div class="min-w-full bg-gradient-to-r from-amber-950 via-emerald-950 to-slate-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
                         <span class="bg-amber-500/40 border border-amber-400/30 text-amber-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">🍯 অর্গানিক ও খাঁটি খাবার</span>
@@ -268,7 +262,6 @@
                 </div>
             </div>
 
-            <!-- স্লাইডার ডট ইন্ডিকেটর -->
             <div class="absolute bottom-2 left-0 right-0 flex justify-center items-center space-x-1.5 z-20 pointer-events-none">
                 <span class="dot h-1.5 w-5 bg-white rounded-full transition-all duration-300"></span>
                 <span class="dot h-1.5 w-1.5 bg-white/40 rounded-full transition-all duration-300"></span>
@@ -279,7 +272,6 @@
         </div>
     </section>
 
-    <!-- ক্যাটাগরি বার সেকশন -->
     <div id="categoryBar" class="bg-white border-b border-slate-200 shadow-sm py-3 sticky top-[115px] md:top-[73px] z-30">
         <div class="container mx-auto px-4 flex items-center space-x-4 overflow-x-auto no-scrollbar whitespace-nowrap">
             <button onclick="filterCategory('all')" class="cat-btn flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-sm transition flex-shrink-0">
@@ -329,7 +321,6 @@
         </div>
     </div>
 
-    <!-- প্রডাক্টস সেকশন -->
     <section id="products" class="container mx-auto px-4 mb-16 pt-4">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
             <div>
@@ -352,9 +343,207 @@
     </section>
 
     <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800 text-center text-xs text-slate-500">
-        &copy; ২০২৬ M.Shop. সর্বস্বত্ব সংরক্ষিত।
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+            <p>&copy; ২০২৬ M.Shop. সর্বস্বত্ব সংরক্ষিত।</p>
+            <button onclick="openAdminLoginModal()" class="bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white px-4 py-2 rounded-xl transition font-bold text-xs flex items-center space-x-2">
+                <i class="fa-solid fa-lock"></i>
+                <span>অ্যাডমিন প্যানেল</span>
+            </button>
+        </div>
     </footer>
 
+    <!-- Account / Login Modal -->
+    <div id="accountModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative transform transition-all">
+            <button onclick="closeAccountModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="accountModalBody">
+                <h3 class="text-lg font-bold text-slate-900 mb-1"><i class="fa-solid fa-user-circle text-indigo-600 mr-2"></i>গ্রাহক অ্যাকাউন্ট</h3>
+                <p class="text-xs text-slate-500 mb-4">অর্ডার হিস্টری দেখতে আপনার মোবাইল নম্বর দিয়ে লগইন করুন</p>
+                
+                <form id="loginForm" onsubmit="handleUserLogin(event)" class="space-y-3.5">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">মোবাইল নম্বর *</label>
+                        <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden focus-within:border-indigo-600">
+                            <span class="bg-slate-100 text-slate-600 text-sm font-bold px-3.5 py-2.5 border-r border-slate-200 select-none">+88</span>
+                            <input type="text" id="userLoginPhone" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="০১XXXXXXXXX" class="w-full px-3.5 py-2.5 text-sm outline-none">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-lg transition text-sm">
+                        লগইন / রেজিস্টার করুন
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile & Order History Modal -->
+    <div id="userProfileModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl relative transform transition-all max-h-[85vh] flex flex-col">
+            <button onclick="closeUserProfileModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-lg font-bold text-slate-900 mb-1"><i class="fa-solid fa-user-check text-indigo-600 mr-2"></i>আমার অ্যাকাউন্ট ও অর্ডার হিস্টরি</h3>
+            <p class="text-xs text-slate-500 mb-4">লগইনকৃত নম্বর: <span id="loggedInPhoneDisplay" class="font-bold text-indigo-600"></span></p>
+            
+            <div class="flex-1 overflow-y-auto space-y-3 pr-1" id="userOrdersHistoryList">
+                <!-- Dynamically filled order history -->
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 mt-3 flex justify-between">
+                <button onclick="userLogout()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 px-4 py-2 rounded-xl font-bold text-xs transition">লগআউট করুন</button>
+                <button onclick="closeUserProfileModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded-xl font-bold text-xs transition">বন্ধ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative transform transition-all">
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-lg font-bold text-slate-900 mb-1"><i class="fa-solid fa-lock text-indigo-600 mr-2"></i>অ্যাডমিন লগইন</h3>
+            <p class="text-xs text-slate-500 mb-4">অ্যাডমিন প্যানেলে প্রবেশ করতে পাসওয়ার্ড দিন</p>
+            
+            <form onsubmit="handleAdminLogin(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">পাসওয়ার্ড *</label>
+                    <input type="password" id="adminPasswordInput" required placeholder="পাসওয়ার্ড লিখুন" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-lg transition text-sm">
+                    প্রবেশ করুন
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="adminDashboardModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-2 md:p-6">
+        <div class="bg-white rounded-3xl max-w-5xl w-full h-[92vh] shadow-2xl relative transform transition-all flex flex-col overflow-hidden">
+            <div class="bg-indigo-900 text-white p-4 px-6 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-gauge-high text-indigo-400 text-xl"></i>
+                    <h3 class="font-bold text-base md:text-lg">M.Shop অ্যাডমিন ড্যাশবোর্ড</h3>
+                </div>
+                <button onclick="closeAdminDashboard()" class="w-9 h-9 rounded-full bg-indigo-800 hover:bg-indigo-700 flex items-center justify-center text-white transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Admin Nav Tabs -->
+            <div class="flex border-b border-slate-200 bg-slate-50 px-6 pt-2 space-x-4">
+                <button onclick="switchAdminTab('orders')" id="adminTabOrdersBtn" class="py-2.5 px-4 font-bold text-xs border-b-2 border-indigo-600 text-indigo-600 transition">অর্ডার মনিটরিং</button>
+                <button onclick="switchAdminTab('products')" id="adminTabProductsBtn" class="py-2.5 px-4 font-bold text-xs border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition">প্রোডাক্ট মনিটরিং</button>
+            </div>
+
+            <!-- Admin Tab Content Area -->
+            <div class="flex-1 overflow-y-auto p-4 md:p-6 bg-slate-50/50">
+                <!-- Orders Tab -->
+                <div id="adminOrdersTabContent" class="space-y-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-slate-800 text-sm">সকল কাস্টমার অর্ডারসমূহ</h4>
+                        <button onclick="loadAdminOrders()" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 px-3 py-1.5 rounded-lg text-xs font-bold transition">
+                            <i class="fa-solid fa-rotate mr-1"></i> রিফ্রেশ করুন
+                        </button>
+                    </div>
+                    <div id="adminOrdersContainer" class="space-y-3">
+                        <p class="text-center text-slate-400 py-8 text-xs">অর্ডার লোড হচ্ছে...</p>
+                    </div>
+                </div>
+
+                <!-- Products Tab -->
+                <div id="adminProductsTabContent" class="space-y-4 hidden">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-slate-800 text-sm">স্টোরের সকল প্রোডাক্ট</h4>
+                        <button onclick="openAddProductModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-sm">
+                            <i class="fa-solid fa-plus mr-1"></i> নতুন প্রডাক্ট যুক্ত করুন
+                        </button>
+                    </div>
+                    <div id="adminProductsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <!-- Admin products list -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Add/Edit Product Modal -->
+    <div id="adminProductFormModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative transform transition-all max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAdminProductFormModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="adminProductFormTitle" class="text-base font-bold text-slate-900 mb-3">নতুন প্রডাক্ট যুক্ত করুন</h3>
+            
+            <form id="adminProductForm" onsubmit="saveAdminProduct(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="editProductId">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">প্রোডাক্টের নাম *</label>
+                    <input type="text" id="adminProdName" required class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">ক্যাটাগরি আইডি *</label>
+                        <select id="adminProdCategory" required class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600 bg-white">
+                            <option value="men">মেনস ফ্যাশন</option>
+                            <option value="women">উমেন্স ফ্যাশন</option>
+                            <option value="kids">কিডস ও টয়েজ</option>
+                            <option value="electronics">ইলেকট্রনিক্স ও গ্যাজেট</option>
+                            <option value="home">হোম অ্যাপ্লায়েন্স</option>
+                            <option value="beauty">হেলথ ও বিউটি</option>
+                            <option value="sports">স্পোর্টস ও আউটডোর</option>
+                            <option value="books">বুকস ও স্টেশনারি</option>
+                            <option value="grocery">গ্রোসারি ও ফুড</option>
+                            <option value="family">ফ্যামিলি কালেকশন</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">ক্যাটাগরি নাম *</label>
+                        <input type="text" id="adminProdCategoryName" required placeholder="যেমন: মেনস ফ্যাশন" class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">দাম সংখ্যায় (যেমন: 1200) *</label>
+                        <input type="number" id="adminProdPriceNum" required class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">মূল্য টেক্সট (যেমন: ৳ ১,২০০) *</label>
+                        <input type="text" id="adminProdPriceText" required class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">পুরোনো দাম (ঐচ্ছিক)</label>
+                    <input type="text" id="adminProdOldPrice" placeholder="৳ ১,৫০০" class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">ট্যাগ (যেমন: নতুন, হট সেল)</label>
+                        <input type="text" id="adminProdTag" class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">রেটিং সংখ্যা</label>
+                        <input type="number" id="adminProdRating" value="35" class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">ছবির লিংক (Image URL) *</label>
+                    <input type="url" id="adminProdImage" required class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">বর্ণনা (Description)</label>
+                    <textarea id="adminProdDesc" rows="2" class="w-full px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-indigo-600"></textarea>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-lg transition">সংরক্ষণ করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
     <div id="productModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl relative transform transition-all">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition z-10">
@@ -364,6 +553,7 @@
         </div>
     </div>
 
+    <!-- Wishlist Modal -->
     <div id="wishlistModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative transform transition-all flex flex-col max-h-[80vh]">
             <div class="flex items-center justify-between pb-4 border-b border-slate-100">
@@ -379,6 +569,7 @@
         </div>
     </div>
 
+    <!-- Cart Drawer -->
     <div id="cartOverlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden transition-opacity opacity-0" onclick="toggleCart()"></div>
     <div id="cartDrawer" class="fixed top-0 right-0 w-full max-w-md h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
@@ -410,6 +601,7 @@
         </div>
     </div>
 
+    <!-- Checkout Modal -->
     <div id="checkoutModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative transform transition-all">
             <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
@@ -450,6 +642,7 @@
         </div>
     </div>
 
+    <!-- Review Modal -->
     <div id="reviewModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl relative transform transition-all max-h-[90vh] flex flex-col">
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -507,11 +700,13 @@
         </div>
     </div>
 
+    <!-- Loading Overlay -->
     <div id="loadingOverlay" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-[9999] hidden flex flex-col items-center justify-center">
         <div class="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4"></div>
         <p class="text-white text-base font-bold tracking-wide">আপনার অর্ডারটি প্রসেস করা হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</p>
     </div>
 
+    <!-- Success Popup -->
     <div id="orderSuccessPopup" class="popup-overlay">
         <div class="popup-box">
             <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
@@ -520,9 +715,10 @@
         </div>
     </div>
 
+    <!-- Firebase SDK Setup -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCmbk4Zo3Ryt0x2wDkTrWIsfE02Nf6Jo18",
@@ -540,81 +736,27 @@
         window.db = db;
         window.collection = collection;
         window.addDoc = addDoc;
+        window.getDocs = getDocs;
+        window.deleteDoc = deleteDoc;
+        window.doc = doc;
+        window.updateDoc = updateDoc;
 
         console.log("Firebase Successfully Connected!");
     </script>
 
+    <!-- Main JS Application Logic -->
     <script>
-        const products = [
-            // --- 1. Men's Fashion (5 Products) ---
+        let products = [
             { id: 1, name: "প্রিমিয়াম ক্যাজুয়াল ফুল স্লিভ শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1200, price: "৳ ১,২০০", tag: "নতুন", rating: 32, hasSize: true, sizes: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80", desc: "আরামদায়ক কটন ফ্যাব্রিক দিয়ে তৈরি আকর্ষণীয় ক্যাজুয়াল শার্ট।" },
             { id: 2, name: "মেনস ক্লাসিক ফরমাল সুজ", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 2200, price: "৳ ২,২০০", oldPrice: "৳ ২,৬০০", tag: "হট সেল", rating: 28, hasSize: true, sizes: ["40", "41", "42", "43", "44"], image: "https://images.unsplash.com/photo-1533867617858-e7d97e0afd8b?auto=format&fit=crop&w=500&q=80", desc: "অফিস বা যেকোনো ফরমাল ইভেন্টের জন্য প্রিমিয়াম লেদার সুজ।" },
             { id: 3, name: "স্টাইলিশ ডেনিম জিন্স প্যান্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1450, price: "৳ ১,৪৫০", oldPrice: "৳ ১,৮০০", tag: "১৫% ছাড়", rating: 45, hasSize: true, sizes: ["28", "30", "32", "34"], image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=500&q=80", desc: "আধুনিক ফিটিং ও টেকসই ডেনিম কাপড়ের স্টাইলিশ জিন্স।" },
             { id: 4, name: "কটন সামার টি-শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 550, price: "৳ ৫৫০", oldPrice: "", tag: "জনপ্রিয়", rating: 50, hasSize: true, sizes: ["M", "L", "XL", "XXL"], image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80", desc: "গরমের দিনে পরার জন্য অত্যন্ত আরামদায়ক ও সফট সুতি টি-শার্ট।" },
             { id: 5, name: "লেদার জেন্টস ওয়ালেট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "সেরা", rating: 38, hasSize: false, image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80", desc: "আসল চামড়ার তৈরি প্রিমিয়াম কোয়ালিটি ফোল্ডেবল ওয়ালেট।" },
-
-            // --- 2. Women's Fashion (5 Products) ---
             { id: 6, name: "ডিজিটাল প্রিন্ট সিল্ক থ্রি-পিস", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 1850, price: "৳ ১,৮৫০", oldPrice: "৳ ২,২০০", tag: "জনপ্রিয়", rating: 19, hasSize: true, sizes: ["Free Size", "Semi-Long"], image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=80", desc: "অপূর্ব ডিজিটাল প্রিন্টের মার্জিত ও প্রিমিয়াম কোয়ালিটি সিল্ক থ্রি-পিস।" },
             { id: 7, name: "এমব্রয়ডারি জর্জেট লং গাউন", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 2400, price: "৳ ২,৪০০", oldPrice: "৳ ৩,০০০", tag: "নতুন", rating: 25, hasSize: true, sizes: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=500&q=80", desc: "আকর্ষণীয় এমব্রয়ডারি কাজের আকর্ষণীয় পার্টি ওয়্যার জর্জেট গাউন।" },
             { id: 8, name: "সফট জর্জেট শাড়ি উইথ ব্লাউজ পিস", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 1550, price: "৳ ১,৫৫০", oldPrice: "", tag: "ছাড়", rating: 33, hasSize: false, image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=500&q=80", desc: "দৈনন্দিন ও হালকা অনুষ্ঠানে পরার উপযোগী আরামদায়ক সফট শাড়ি।" },
             { id: 9, name: "ডিজাইনার হ্যান্ড ব্যাগ", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 1100, price: "৳ ১,১০০", oldPrice: "৳ ১,৪০০", tag: "হট সেল", rating: 44, hasSize: false, image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80", desc: "আধুনিক ফ্যাশনেবল এবং টেকসই চামড়ার তৈরি উইমেন্স হ্যান্ড ব্যাগ।" },
-            { id: 10, name: "পাথর বসানো ফ্যাশনেবল জুয়েলার্স সেট", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 850, price: "৳ ৮৫০", oldPrice: "", tag: "সেরা", rating: 29, hasSize: false, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80", desc: "বিয়ে বা উৎসবে পরার জন্য চমৎকার স্টোন ওয়ার্ক জুয়েলারি সেট।" },
-
-            // --- 3. Kids & Toys (5 Products) ---
-            { id: 11, name: "কিডস কটন প্রিন্টেড ফ্রক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "নতুন", rating: 40, hasSize: true, sizes: ["2-3 Years", "4-5 Years", "6-7 Years"], image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=500&q=80", desc: "ছোট সোনামণিটার জন্য আকর্ষণীয় ও আরামদায়ক সুতি কটন ফ্রক।" },
-            { id: 12, name: "বেবি বয় সামার টি-শার্ট ও প্যান্ট সেট", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "হট সেল", rating: 52, hasSize: true, sizes: ["1-2 Years", "3-4 Years", "5-6 Years"], image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80", desc: "ছেলে বাচ্চাদের জন্য কালারফুল এবং সফট কাপড়ের ক্যাজুয়াল সেট।" },
-            { id: 13, name: "রিমোট কন্ট্রোল রেসিং কার খেলনা", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 1250, price: "৳ ১,২৫০", oldPrice: "৳ ১,৬০০", tag: "জনপ্রিয়", rating: 60, hasSize: false, image: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?auto=format&fit=crop&w=500&q=80", desc: "বাচ্চাদের বুদ্ধিমত্তা ও বিনোদনের জন্য ফাস্ট রিমোট কন্ট্রোল কার।" },
-            { id: 14, name: "প্লাশ টেডি বিয়ার সফট টয়", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "সেরা", rating: 71, hasSize: false, image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80", desc: "খুব নরম তুলতুলে বাচ্চাদের খেলার ও কোলের টেডি বিয়ার পুতুল।" },
-            { id: 15, name: "কিডস স্টাডি স্কুল ব্যাকপ্যাক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 890, price: "৳ ৮৯০", oldPrice: "৳ ১,১০০", tag: "ছাড়", rating: 35, hasSize: false, image: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=500&q=80", desc: "কার্টুন প্রিন্টযুক্ত ছোট সোনামণিদের স্কুল বা ভ্রমণের আকর্ষণীয় ব্যাগ।" },
-
-            // --- 4. Electronics & Gadgets (5 Products) ---
-            { id: 16, name: "ব্লুটুথ টিডব্লিউএস ওয়্যারলেস ইয়ারবাড", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 1450, price: "৳ ১,৪৫০", oldPrice: "৳ ১,৮০০", tag: "১৫% ছাড়", rating: 48, hasSize: false, image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=80", desc: "হাই-কোয়ালিটি নয়েজ ক্যান্সেলিং এবং দীর্ঘস্থায়ী ব্যাটারি ব্যাকআপযুক্ত প্রিমিয়াম ইয়ারবাড।" },
-            { id: 17, name: "থ্রি-ইন-ওয়ান মাল্টিফাংশনাল গ্যাজেট", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 990, price: "৳ ৯৯০", oldPrice: "", tag: "হট সেল", rating: 75, hasSize: false, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80", desc: "এক সাথে বহুমুখী কাজের সুবিধার জন্য আধুনিক মাল্টিফাংশনাল গ্যাজেট।" },
-            { id: 18, name: "স্মার্ট ব্লুটুথ কলিং ওয়াচ", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 2500, price: "৳ ২,৫০০", oldPrice: "৳ ৩,২০০", tag: "নতুন", rating: 82, hasSize: false, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80", desc: "হেলথ ট্র্যাকিং এবং সরাসরি কল রিসিভ করার সুবিধা সম্বলিত স্মার্টওয়াচ।" },
-            { id: 19, name: "পোর্টেবল মিনি ব্লুটুথ স্পিকার", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 730, price: "৳ ৭৩০", oldPrice: "৳ ৯৫০", tag: "জনপ্রিয়", rating: 46, hasSize: false, image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80", desc: "চমৎকার বেস সাউন্ড এবং সহজে বহনযোগ্য মিনি ব্লুটুথ স্পিকার।" },
-            { id: 20, name: "ইউএসবি রিচার্জেবল টেবল ল্যাম্প", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 620, price: "৳ ৬২০", oldPrice: "", tag: "সেরা", rating: 39, hasSize: false, image: "https://images.unsplash.com/photo-1534349762230-10cad6d63ab7?auto=format&fit=crop&w=500&q=80", desc: "চোখের সুরক্ষা প্রদানকারী টাচ কন্ট্রোল রিচার্জেবল স্টাডি ল্যাম্প।" },
-
-            // --- 5. Home Appliances (5 Products) ---
-            { id: 21, name: "স্মার্ট হ্যান্ড ব্লেন্ডার ও চপার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 2150, price: "৳ ২,১৫০", oldPrice: "৳ ২,৫০০", tag: "১০% ছাড়", rating: 24, hasSize: false, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=500&q=80", desc: "রান্নার কাজ সহজ করতে অত্যন্ত শক্তিশালী ও টেকসই স্মার্ট ব্লেন্ডার।" },
-            { id: 22, name: "ইলেকট্রিক মাল্টিপারপাস রাইস কুকার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 3200, price: "৳ ৩,২০০", oldPrice: "৳ ৩,৮০০", tag: "হট সেল", rating: 55, hasSize: false, image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80", desc: "খাবার গরম রাখা এবং দ্রুত রান্না করার প্রিমিয়াম ইলেকট্রিক কুকার।" },
-            { id: 23, name: "পোর্টেবল ইউএসবি মিনি জুসার ব্লেন্ডার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,৩০০", tag: "নতুন", rating: 43, hasSize: false, image: "https://images.unsplash.com/photo-1570222094114-d074f7e24555?auto=format&fit=crop&w=500&q=80", desc: "যেকোনো জায়গায় ফ্রেশ জুস তৈরি করার পোর্টেবল জুসার কাপ।" },
-            { id: 24, name: "অটোমেটিক ইলেকট্রিক কেটলি", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 1150, price: "৳ ১,১৫০", tag: "জনপ্রিয়", rating: 62, hasSize: false, image: "https://images.unsplash.com/photo-1594807046599-155452e825a0?auto=format&fit=crop&w=500&q=80", desc: "দ্রুত পানি গরম করার স্টেইনলেস স্টিলের অটোমেটিক ইলেকট্রিক কেটলি।" },
-            { id: 25, name: "ওয়াল মাউন্টেবল মাল্টি-পারপাস র‍্যাক", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 590, price: "৳ ৫৯০", oldPrice: "", tag: "সেরা", rating: 31, hasSize: false, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=500&q=80", desc: "ঘর গুছিয়ে রাখার জন্য সহজে দেয়ালে লাগানোর মতো প্লাস্টিক র‍্যাক।" },
-
-            // --- 6. Health & Beauty (5 Products) ---
-            { id: 26, name: "হার্বাল ব্রাইটনিং ফেসওয়াশ", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 450, price: "৳ ৪৫০", oldPrice: "", tag: "সেরা", rating: 56, hasSize: false, image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80", desc: "ত্বকের উজ্জ্বলতা বৃদ্ধি ও গভীর থেকে ময়লা পরিষ্কার করার ন্যাচারাল ফেসওয়াশ।" },
-            { id: 27, name: "ভিটামিন সি ফেস সিরাম", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "নতুন", rating: 68, hasSize: false, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80", desc: "ত্বকের দাগ দূর করে দীপ্তিময় ও গ্লোয়িং লুক এনে দেয়।" },
-            { id: 28, name: "অ্যালোভেরা সুদিং জেল", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 380, price: "৳ ৩৮০", oldPrice: "৳ ৫০০", tag: "জনপ্রিয়", rating: 90, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "প্রাকৃতিক অ্যালোভেরা নির্যাস সমৃদ্ধ ময়েশ্চারাইজিং সুদিং জেল।" },
-            { id: 29, name: "হেয়ার ফল কন্ট্রোল অর্গানিক শ্যাম্পু", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 680, price: "৳ ৬৮০", oldPrice: "৳ ৮০০", tag: "হট সেল", rating: 47, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "চুল পড়া রোধ ও চুল সিল্কি করতে কার্যকরী ভেষজ শ্যাম্পু।" },
-            { id: 30, name: "ম্যাট ফিনিশ লিপস্টিক ও মেকআপ কিট", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 990, price: "৳ ৯৯০", oldPrice: "৳ ১,৩০০", tag: "ছাড়", rating: 53, hasSize: false, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80", desc: "দীর্ঘস্থায়ী এবং ওয়াটারপ্রুফ প্রিমিয়াম কোয়ালিটি মেকআপ কিট।" },
-
-            // --- 7. Sports & Outdoor (5 Products) ---
-            { id: 31, name: "প্রিমিয়াম স্পোর্টস জিম ব্যাগ", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 1350, price: "৳ ১,৩৫০", oldPrice: "৳ ১,৬০০", tag: "ছাড়", rating: 41, hasSize: false, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80", desc: "জিম বা ট্রাভেলের জন্য ওয়াটারপ্রুফ ও স্টাইলিশ স্পোর্টস ব্যাগ।" },
-            { id: 32, name: "প্রফেশনাল ফুটবল বল", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "জনপ্রিয়", rating: 58, hasSize: false, image: "https://images.unsplash.com/photo-1614632537456-7468770f715b?auto=format&fit=crop&w=500&q=80", desc: "মাঠে খেলার জন্য অত্যন্ত মজবুত ও টেকসই চামড়ার ফুটবল।" },
-            { id: 33, name: "অ্যান্টি-স্লিপ ফিজিক্যাল এক্সারসাইজ ইয়োগা ম্যাট", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 890, price: "৳ ৮৯০", oldPrice: "৳ ১,১০০", tag: "নতুন", rating: 36, hasSize: false, image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf297c?auto=format&fit=crop&w=500&q=80", desc: "ব্যায়াম ও ফিটনেসের জন্য আরামদায়ক স্লিপ-প্রুফ ইয়োগা ম্যাট।" },
-            { id: 34, name: "স্টেইনলেস স্টিল স্পোর্টস ওয়াটার বোটল", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 550, price: "৳ ৫৫০", oldPrice: "", tag: "সেরা", rating: 49, hasSize: false, image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=80", desc: "দীর্ঘক্ষণ পানি ঠাণ্ডা বা গরম রাখার ইনসুলেটেড স্পোর্টস বোতল।" },
-            { id: 35, name: "ফিটনেস রিস্ট ব্যান্ড ও হ্যান্ড গ্রিপ", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 420, price: "৳ ৪২০", oldPrice: "৳ ৬০০", tag: "হট সেল", rating: 30, hasSize: false, image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80", desc: "হাতের পেশী শক্তিশালী করার জন্য জিম হ্যান্ড গ্রিপ এক্সারসাইজার।" },
-
-            // --- 8. Books & Stationery (5 Products) ---
-            { id: 36, name: "বেস্টসেলার মো্টিভেশনাল উপন্যাস বই", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 350, price: "৳ ৩৫০", oldPrice: "৳ ৪৫০", tag: "বেস্টসেলার", rating: 88, hasSize: false, image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=500&q=80", desc: "মনের খোরাক ও জীবন বদলানোর অনুপ্রেরণামূলক চমৎকার একটি বই।" },
-            { id: 37, name: "প্রিমিয়াম হার্ডকভার নোটবুক ও ডায়েরি", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 280, price: "৳ ২৮০", oldPrice: "৳ ৩৫০", tag: "নতুন", rating: 45, hasSize: false, image: "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=500&q=80", desc: "অফিস বা পড়াশোনার নোট নেওয়ার জন্য প্রিমিয়াম পেপারের ডায়েরি।" },
-            { id: 38, name: "কালারফুল জেল পেন সেট (১০ পিস)", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 220, price: "৳ ২২০", oldPrice: "", tag: "জনপ্রিয়", rating: 64, hasSize: false, image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=500&q=80", desc: "খুব স্মুথ লেখার উপযোগী রেইনবো কালার জেল কলমের সেট।" },
-            { id: 39, name: "আর্ট ও স্কেচিং কালার পেন্সিল বক্স", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 490, price: "৳ ৪৯০", oldPrice: "৳ ৬০০", tag: "হট সেল", rating: 51, hasSize: false, image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80", desc: "ড্রয়িং এবং স্কেচ করার জন্য ২৪ রঙের প্রফেশনাল কালার পেন্সিল।" },
-            { id: 40, name: "স্টাডি ডেস্ক অর্গানাইজার বক্স", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 390, price: "৳ ৩৯০", oldPrice: "৳ ৫০০", tag: "সেরা", rating: 37, hasSize: false, image: "https://images.unsplash.com/photo-1585336261022-682e293cb0fe?auto=format&fit=crop&w=500&q=80", desc: "টেবিল গোছালো রাখতে কলম ও স্টেশনারি রাখার মাল্টিপারপাস বক্স।" },
-
-            // --- 9. Grocery & Food (5 Products) ---
-            { id: 41, name: "অর্গানিক সুন্দরবনের মধু (৫০০ গ্রাম)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "খাঁটি", rating: 95, hasSize: false, image: "https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=500&q=80", desc: "বনের ফুলের খাঁটি ও ভেজালমুক্ত পুষ্টিকর প্রাকৃতিক মধু।" },
-            { id: 42, name: "প্রিমিয়াম প্রিমিয়াম ঘি (৫০০ মিলি)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 850, price: "৳ ৮৫০", oldPrice: "৳ ১,০০০", tag: "জনপ্রিয়", rating: 82, hasSize: false, image: "https://images.unsplash.com/photo-1631451095765-2c91c165e3dc?auto=format&fit=crop&w=500&q=80", desc: "গাভীর খাঁটি দুধের তৈরি সুগন্ধযুক্ত ও সুস্বাদু ঐতিহ্যবাহী ঘি।" },
-            { id: 43, name: "কাজুবাদাম ও পেস্তাবাদাম মিক্স (২৫০ গ্রাম)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 480, price: "৳ ৪৮০", oldPrice: "৳ ৬০০", tag: "স্বাস্থ্যকর", rating: 77, hasSize: false, image: "https://images.unsplash.com/photo-1524593166156-312f362cada0?auto=format&fit=crop&w=500&q=80", desc: "স্বাস্থ্য সুরক্ষায় প্রিমিয়াম কোয়ালিটির টাটকা এবং ক্রাঞ্চি বাদাম।" },
-            { id: 44, name: "এক্সট্রা ভার্জিন অলিভ অয়েল (৫০০ মিলি)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "আমদানীকৃত", rating: 49, hasSize: false, image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=500&q=80", desc: "রান্না ও ত্বকের যত্নে ব্যবহারের জন্য ১০০% পিওর অলিভ অয়েল।" },
-            { id: 45, name: "প্রিমিয়াম ব্ল্যাক টি (চা পাতা - ৪০০ গ্রাম)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 320, price: "৳ ৩২০", oldPrice: "", tag: "সেরা", rating: 53, hasSize: false, image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80", desc: "সতেজ ও চমৎকার ফ্লেভারের রিফ্রেশিং প্রিমিয়াম চা পাতা।" },
-
-            // --- 10. Family Collection (5 Products) ---
-            { id: 46, name: "ফ্যামিলি ম্যাচিং প্রিন্টেড উৎসব পোশাক সেট", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 2990, price: "৳ ২,৯৯০", oldPrice: "৳ ৩,৫০০০", tag: "নতুন", rating: 65, hasSize: true, sizes: ["M", "L", "XL", "Family Combo"], image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=500&q=80", desc: "পরিবারের সবার সাথে মিলিয়ে পরার আকর্ষণীয় এবং আরামদায়ক ম্যাচিং সেট।" },
-            { id: 47, name: "মাইল্ড ফ্যামিলি কেয়ার অর্গানিক বডি লোশন", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "জনপ্রিয়", rating: 80, hasSize: false, image: "https://images.unsplash.com/photo-1608248597359-28c460775586?auto=format&fit=crop&w=500&q=80", desc: "ছোট-বড় সবার ত্বকের সুরক্ষায় নিরাপদ ও ময়েশ্চারাইজিং বডি লোশন।" },
-            { id: 48, name: "ফ্যামিলি সাইজ সফট কমফর্টার ও বেডশিট সেট", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 1850, price: "৳ ১,৮৫০", oldPrice: "৳ ২,৩০০", tag: "সেরা", rating: 91, hasSize: false, image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80", desc: "পুরো পরিবারের আরামদায়ক ঘুমের জন্য প্রিমিয়াম কোয়ালিটি বেডশিট ও কমফর্টার।" },
-            { id: 49, name: "পারিবারিক আড্ডার প্রিমিয়াম স্ন্যাক্স ও কুকিজ বক্স", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 550, price: "৳ ৫৫০", oldPrice: "৳ ৭০০", tag: "হট সেল", rating: 73, hasSize: false, image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80", desc: "বিকালে ফ্যামিলি টাইম উপভোগ করার সুস্বাদু কুকিজ ও স্ন্যাক্স বক্স।" },
-            { id: 50, name: "কম্প্যাক্ট ফ্যামিলি ফাস্ট ফার্স্ট এইড কিট বক্স", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "প্রয়োজনীয়", rating: 88, hasSize: false, image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80", desc: "পরিবারের জরুরি স্বাস্থ্য সুরক্ষায় প্রয়োজনীয় ফার্স্ট এইড ওষুধ ও ব্যান্ডেজ বক্স।" }
+            { id: 10, name: "পাথর বসানো ফ্যাশনেবল জুয়েলার্স সেট", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 850, price: "৳ ৮৫০", oldPrice: "", tag: "সেরা", rating: 29, hasSize: false, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80", desc: "বিয়ে বা উৎসবে পরার জন্য চমৎকার স্টোন ওয়ার্ক জুয়েলারি সেট।" }
         ];
 
         let currentSlide = 0;
@@ -628,6 +770,7 @@
         const dots = document.querySelectorAll('.dot');
 
         function updateSlider() {
+            if(!track) return;
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
@@ -703,10 +846,11 @@
         }
 
         const sliderWrapper = document.getElementById('sliderWrapper');
-        sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
-        sliderWrapper.addEventListener('mouseleave', startAutoSlide);
-
-        startAutoSlide();
+        if(sliderWrapper) {
+            sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
+            sliderWrapper.addEventListener('mouseleave', startAutoSlide);
+            startAutoSlide();
+        }
 
         let cart = [];
         let wishlist = [];
@@ -714,6 +858,100 @@
         let currentActiveCategory = 'all';
         let tempOrderData = {};
         let deliveryFee = 60;
+        let loggedInUser = localStorage.getItem('mshop_logged_user') || null;
+
+        function checkUserAuthUI() {
+            const btnText = document.getElementById('accountBtnText');
+            if(loggedInUser) {
+                btnText.innerText = loggedInUser;
+            } else {
+                btnText.innerText = 'লগইন / একাউন্ট';
+            }
+        }
+
+        function openAccountModal() {
+            if(loggedInUser) {
+                document.getElementById('loggedInPhoneDisplay').innerText = '+88' + loggedInUser;
+                loadUserOrderHistory();
+                document.getElementById('userProfileModal').classList.remove('hidden');
+                document.body.classList.add('popup-active');
+            } else {
+                document.getElementById('accountModal').classList.remove('hidden');
+                document.body.classList.add('popup-active');
+            }
+        }
+
+        function closeAccountModal() {
+            document.getElementById('accountModal').classList.add('hidden');
+            document.body.classList.remove('popup-active');
+        }
+
+        function closeUserProfileModal() {
+            document.getElementById('userProfileModal').classList.add('hidden');
+            document.body.classList.remove('popup-active');
+        }
+
+        function handleUserLogin(e) {
+            e.preventDefault();
+            const phone = document.getElementById('userLoginPhone').value;
+            if(phone.length !== 11) {
+                alert('দয়া করে সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন!');
+                return;
+            }
+            loggedInUser = phone;
+            localStorage.setItem('mshop_logged_user', phone);
+            checkUserAuthUI();
+            closeAccountModal();
+            document.getElementById('loginForm').reset();
+            alert('সফলভাবে লগইন হয়েছে!');
+        }
+
+        function userLogout() {
+            loggedInUser = null;
+            localStorage.removeItem('mshop_logged_user');
+            checkUserAuthUI();
+            closeUserProfileModal();
+            alert('লগআউট করা হয়েছে!');
+        }
+
+        async function loadUserOrderHistory() {
+            const container = document.getElementById('userOrdersHistoryList');
+            container.innerHTML = `<p class="text-center text-xs text-slate-400 py-6">আপনার অর্ডার হিস্টরি লোড হচ্ছে...</p>`;
+            
+            try {
+                const querySnapshot = await window.getDocs(window.collection(window.db, "orders"));
+                let userOrders = [];
+                querySnapshot.forEach((docSnap) => {
+                    let data = docSnap.data();
+                    if(data.customer && data.customer.phone === ('+88' + loggedInUser)) {
+                        userOrders.push({ id: docSnap.id, ...data });
+                    }
+                });
+
+                if(userOrders.length === 0) {
+                    container.innerHTML = `<p class="text-center text-xs text-slate-400 py-8">আপনার কোনো পূর্ববর্তী অর্ডার নেই!</p>`;
+                    return;
+                }
+
+                container.innerHTML = "";
+                userOrders.forEach(ord => {
+                    let itemsHtml = ord.items.map(i => `<div class="text-[11px] text-slate-600">• ${i.name} (পরিমাণ: ${i.quantity}, দাম: ৳ ${i.price * i.quantity})</div>`).join('');
+                    container.innerHTML += `
+                        <div class="bg-slate-50 border border-slate-100 p-3.5 rounded-2xl space-y-2">
+                            <div class="flex justify-between items-center text-xs font-bold text-indigo-900 border-b border-slate-200 pb-1.5">
+                                <span>অর্ডার নম্বর: ${ord.orderNo}</span>
+                                <span class="text-indigo-600">মোট: ৳ ${ord.grandTotal}</span>
+                            </div>
+                            <div class="space-y-1">${itemsHtml}</div>
+                            <p class="text-[10px] text-slate-400 pt-1">ঠিকানা: ${ord.customer.address} (${ord.customer.deliveryArea})</p>
+                        </div>
+                    `;
+                });
+            } catch(e) {
+                console.error(e);
+                container.innerHTML = `<p class="text-center text-xs text-rose-500 py-6">অর্ডার হিস্টরি লোড করতে সমস্যা হয়েছে।</p>`;
+            }
+        }
 
         function updateDeliveryCharge() {
             const area = document.getElementById('deliveryArea').value;
@@ -723,6 +961,7 @@
 
         function displayProducts(items) {
             const grid = document.getElementById('productGrid');
+            if(!grid) return;
             grid.innerHTML = "";
             
             if(items.length === 0) {
@@ -740,7 +979,7 @@
 
                         <div class="cursor-pointer" onclick="openModal(${p.id})">
                             <div class="bg-slate-100 h-52 flex items-center justify-center text-slate-400 relative overflow-hidden">
-                                <span class="absolute top-3 left-3 z-10 bg-indigo-600 text-white text-[11px] font-bold px-3 py-1 rounded-lg shadow-sm">${p.tag}</span>
+                                <span class="absolute top-3 left-3 z-10 bg-indigo-600 text-white text-[11px] font-bold px-3 py-1 rounded-lg shadow-sm">${p.tag || 'নতুন'}</span>
                                 <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                             </div>
                             <div class="p-5">
@@ -748,7 +987,7 @@
                                 <h3 class="font-bold text-slate-900 mb-2 truncate text-base">${p.name}</h3>
                                 <div class="flex items-center mb-4 text-amber-400 text-xs">
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    <span class="text-slate-500 ml-1.5 font-medium">(${p.rating})</span>
+                                    <span class="text-slate-500 ml-1.5 font-medium">(${p.rating || 30})</span>
                                 </div>
                             </div>
                         </div>
@@ -767,15 +1006,8 @@
         function activateSearchMode() {
             document.getElementById('homeBannerSection').style.display = 'none';
             document.getElementById('categoryBar').style.display = 'none';
-            
             document.getElementById('searchBtnIcon').classList.remove('fa-magnifying-glass');
             document.getElementById('searchBtnIcon').classList.add('fa-xmark');
-
-            const productsSection = document.getElementById('products');
-            window.scrollTo({
-                top: productsSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
         }
 
         function clearSearch() {
@@ -811,19 +1043,6 @@
             
             document.getElementById('activeCategoryName').innerText = titleMap[category] || 'ফলাফল';
             applyFilterAndSort();
-
-            const productsSection = document.getElementById('products');
-            const headerHeight = document.getElementById('mainHeader').offsetHeight;
-            const categoryBarHeight = document.getElementById('categoryBar').offsetHeight;
-            const totalOffset = headerHeight + categoryBarHeight + 20;
-
-            const elementPosition = productsSection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
         }
 
         function sortProducts() {
@@ -836,10 +1055,6 @@
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             if (query !== "") {
                 items = items.filter(p => p.name.toLowerCase().includes(query) || p.categoryName.toLowerCase().includes(query));
-                document.getElementById('homeBannerSection').style.display = 'none';
-                document.getElementById('categoryBar').style.display = 'none';
-                document.getElementById('searchBtnIcon').classList.remove('fa-magnifying-glass');
-                document.getElementById('searchBtnIcon').classList.add('fa-xmark');
             }
 
             const sortVal = document.getElementById('sortSelect').value;
@@ -915,7 +1130,7 @@
             selectedSize = ''; 
 
             let sizeHtml = '';
-            if (product.hasSize) {
+            if (product.hasSize && product.sizes) {
                 let sizeOptions = product.sizes.map(s => `<button onclick="selectSize(this, '${s}')" class="size-btn px-4 py-2 border border-slate-200 rounded-xl text-xs font-bold hover:border-indigo-600 hover:text-indigo-600 transition">${s}</button>`).join('');
                 sizeHtml = `
                     <div class="mb-4">
@@ -927,12 +1142,12 @@
 
             content.innerHTML = `
                 <div class="bg-slate-100 h-48 rounded-2xl overflow-hidden mb-4 relative shadow-inner">
-                    <span class="absolute top-3 left-3 z-10 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-lg">${product.tag}</span>
+                    <span class="absolute top-3 left-3 z-10 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-lg">${product.tag || 'নতুন'}</span>
                     <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
                 </div>
                 <span class="text-xs text-indigo-600 font-bold bg-indigo-50 px-2.5 py-1 rounded-md inline-block mb-1">${product.categoryName}</span>
                 <h2 class="text-xl font-bold text-slate-900 mb-2">${product.name}</h2>
-                <p class="text-xs text-slate-500 leading-relaxed mb-4">${product.desc}</p>
+                <p class="text-xs text-slate-500 leading-relaxed mb-4">${product.desc || ''}</p>
                 <div class="flex items-center space-x-3 mb-4">
                     <span class="text-indigo-600 font-extrabold text-2xl">${product.price}</span>
                     ${product.oldPrice ? `<span class="text-slate-400 text-sm line-through">${product.oldPrice}</span>` : ''}
@@ -961,13 +1176,13 @@
         }
 
         function addModalToCart(productId, hasSize) {
-            if (hasSize && !selectedSize) {
+            const product = products.find(p => p.id === productId);
+            if (hasSize && product.sizes && !selectedSize) {
                 alert('দয়া করে প্রথমে একটি সাইজ সিলেক্ট করুন!');
                 return;
             }
 
-            const product = products.find(p => p.id === productId);
-            const cartKey = hasSize ? `${productId}-${selectedSize}` : `${productId}-nosize`;
+            const cartKey = hasSize && selectedSize ? `${productId}-${selectedSize}` : `${productId}-nosize`;
             const existingItem = cart.find(item => item.cartKey === cartKey);
 
             if (existingItem) {
@@ -976,7 +1191,7 @@
                 cart.push({
                     ...product,
                     cartKey: cartKey,
-                    selectedSize: hasSize ? selectedSize : null,
+                    selectedSize: hasSize && selectedSize ? selectedSize : null,
                     qty: 1
                 });
             }
@@ -990,9 +1205,7 @@
             const cartIconBtns = document.querySelectorAll('.cart-icon-btn');
             cartIconBtns.forEach(btn => {
                 btn.classList.add('cart-animate');
-                setTimeout(() => {
-                    btn.classList.remove('cart-animate');
-                }, 400);
+                setTimeout(() => btn.classList.remove('cart-animate'), 400);
             });
         }
 
@@ -1037,7 +1250,6 @@
             let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
             document.getElementById('cartCount').innerText = totalItems;
             document.getElementById('cartCountMobile').innerText = totalItems;
-
             deliveryTextEl.innerText = `৳ ${deliveryFee}`;
 
             if (cart.length === 0) {
@@ -1088,6 +1300,9 @@
                 return;
             }
             toggleCart();
+            if(loggedInUser) {
+                document.getElementById('buyerPhone').value = loggedInUser;
+            }
             document.getElementById('checkoutModal').classList.remove('hidden');
             document.body.classList.add('popup-active');
         }
@@ -1125,7 +1340,6 @@
             document.getElementById('reviewAddress').innerText = address;
 
             renderReviewProducts();
-
             closeCheckoutModal();
             document.getElementById('reviewModal').classList.remove('hidden');
             document.body.classList.add('popup-active');
@@ -1135,14 +1349,6 @@
             let reviewProductsContainer = document.getElementById('reviewProductsContainer');
             reviewProductsContainer.innerHTML = "";
             let subtotal = 0;
-
-            if(cart.length === 0) {
-                reviewProductsContainer.innerHTML = `<p class="text-center text-xs text-slate-400 py-6">আপনার কার্টে কোনো প্রডাক্ট নেই!</p>`;
-                document.getElementById('reviewSubtotal').innerText = '৳ ০';
-                document.getElementById('reviewDeliveryCharge').innerText = `৳ ${deliveryFee}`;
-                document.getElementById('reviewGrandTotal').innerText = `৳ ${deliveryFee}`;
-                return;
-            }
 
             cart.forEach(item => {
                 let itemTotal = item.priceNum * item.qty;
@@ -1187,7 +1393,11 @@
                     }
                 }
             }
-            renderReviewProducts();
+            if(cart.length === 0) {
+                closeReviewModal();
+            } else {
+                renderReviewProducts();
+            }
         }
 
         function closeReviewModal() {
@@ -1210,24 +1420,16 @@
         function generateUniqueBanglaOrderNumber() {
             const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
             const toBanglaNum = (numStr) => numStr.toString().replace(/\d/g, d => banglaDigits[d]);
-            
             const randomNum = Math.floor(100 + Math.random() * 900); 
             const timeNum = Date.now().toString().slice(-3);
-            
-            const prefix = "অর্ডার-";
-            return prefix + toBanglaNum(timeNum) + toNumBanglaNum(randomNum); // fixed toBanglaNum
+            return "অর্ডার-" + toBanglaNum(timeNum) + toBanglaNum(randomNum);
         }
 
         async function finalizeOrder() {
-            if(cart.length === 0) {
-                alert('আপনার কার্টে কোনো প্রডাক্ট নেই!');
-                return;
-            }
-
+            if(cart.length === 0) return;
             document.getElementById('loadingOverlay').classList.remove('hidden');
 
             const uniqueOrderNo = generateUniqueBanglaOrderNumber();
-            
             let subtotal = cart.reduce((sum, item) => sum + (item.priceNum * item.qty), 0);
             let grandTotal = subtotal + deliveryFee;
 
@@ -1244,7 +1446,8 @@
                     name: item.name,
                     price: item.priceNum,
                     quantity: item.qty,
-                    size: item.selectedSize || 'N/A'
+                    size: item.selectedSize || 'N/A',
+                    image: item.image
                 })),
                 subtotal: subtotal,
                 deliveryCharge: deliveryFee,
@@ -1254,9 +1457,8 @@
 
             try {
                 await window.addDoc(window.collection(window.db, "orders"), orderData);
-                console.log("Order successfully saved to Firebase!");
             } catch (error) {
-                console.error("Error adding order to Firebase: ", error);
+                console.error(error);
                 document.getElementById('loadingOverlay').classList.add('hidden');
                 alert("দুঃখিত, অর্ডারটি ডাটাবেসে সংরক্ষণ করতে সমস্যা হয়েছে!");
                 return;
@@ -1287,6 +1489,223 @@
             document.body.classList.remove('popup-active');
         }
 
+        // --- Admin Panel Functions ---
+        function openAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+            document.body.classList.add('popup-active');
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+            document.body.classList.remove('popup-active');
+            document.getElementById('adminPasswordInput').value = "";
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            if(pass === '@must007k') {
+                closeAdminLoginModal();
+                openAdminDashboard();
+            } else {
+                alert('ভুল পাসওয়ার্ড দেওয়া হয়েছে!');
+            }
+        }
+
+        function openAdminDashboard() {
+            document.getElementById('adminDashboardModal').classList.remove('hidden');
+            document.body.classList.add('popup-active');
+            loadAdminOrders();
+            loadAdminProducts();
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('adminDashboardModal').classList.add('hidden');
+            document.body.classList.remove('popup-active');
+        }
+
+        function switchAdminTab(tab) {
+            const ordersTabBtn = document.getElementById('adminTabOrdersBtn');
+            const productsTabBtn = document.getElementById('adminTabProductsBtn');
+            const ordersContent = document.getElementById('adminOrdersTabContent');
+            const productsContent = document.getElementById('adminProductsTabContent');
+
+            if(tab === 'orders') {
+                ordersTabBtn.className = "py-2.5 px-4 font-bold text-xs border-b-2 border-indigo-600 text-indigo-600 transition";
+                productsTabBtn.className = "py-2.5 px-4 font-bold text-xs border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition";
+                ordersContent.classList.remove('hidden');
+                productsContent.classList.add('hidden');
+                loadAdminOrders();
+            } else {
+                productsTabBtn.className = "py-2.5 px-4 font-bold text-xs border-b-2 border-indigo-600 text-indigo-600 transition";
+                ordersTabBtn.className = "py-2.5 px-4 font-bold text-xs border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition";
+                productsContent.classList.remove('hidden');
+                ordersContent.classList.add('hidden');
+                loadAdminProducts();
+            }
+        }
+
+        async function loadAdminOrders() {
+            const container = document.getElementById('adminOrdersContainer');
+            container.innerHTML = `<p class="text-center text-xs text-slate-400 py-6">অর্ডার লিস্ট লোড হচ্ছে...</p>`;
+            
+            try {
+                const querySnapshot = await window.getDocs(window.collection(window.db, "orders"));
+                let orders = [];
+                querySnapshot.forEach((docSnap) => {
+                    orders.push({ id: docSnap.id, ...docSnap.data() });
+                });
+
+                if(orders.length === 0) {
+                    container.innerHTML = `<p class="text-center text-xs text-slate-400 py-8">কোনো অর্ডার পাওয়া যায়নি!</p>`;
+                    return;
+                }
+
+                container.innerHTML = "";
+                orders.forEach(ord => {
+                    let itemsHtml = ord.items.map(i => `
+                        <div class="flex items-center space-x-2 bg-white p-2 rounded-xl border border-slate-100">
+                            <img src="${i.image || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=100&q=80'}" class="w-10 h-10 object-cover rounded-lg">
+                            <div class="flex-1 min-w-0">
+                                <p class="font-bold text-xs text-slate-800 truncate">${i.name}</p>
+                                <p class="text-[10px] text-slate-500">${i.size !== 'N/A' ? 'সাইজ: ' + i.size + ' | ' : ''}পরিমাণ: ${i.quantity} | মূল্য: ৳ ${i.price * i.quantity}</p>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    container.innerHTML += `
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 space-y-3">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-100 pb-2 gap-1">
+                                <span class="font-bold text-indigo-600 text-xs"><i class="fa-solid fa-receipt mr-1"></i> সিরিয়াল: ${ord.orderNo}</span>
+                                <span class="text-[11px] text-slate-400">${new Date(ord.orderDate).toLocaleString('bn-BD')}</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 bg-slate-50 p-3 rounded-xl text-xs">
+                                <div>
+                                    <p class="font-bold text-slate-700">গ্রাহকের নাম: ${ord.customer.name}</p>
+                                    <p class="text-slate-600">মোবাইল: ${ord.customer.phone}</p>
+                                    <p class="text-slate-600">এরিয়া: ${ord.customer.deliveryArea}</p>
+                                </div>
+                                <div>
+                                    <p class="text-slate-600">ঠিকানা: ${ord.customer.address}</p>
+                                    <p class="font-bold text-indigo-900 mt-1">সর্বমোট প্রদেয়: ৳ ${ord.grandTotal}</p>
+                                </div>
+                            </div>
+                            <div class="space-y-1.5">
+                                <p class="text-xs font-bold text-slate-700">অর্ডারকৃত পণ্যসমূহ:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">${itemsHtml}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = `<p class="text-center text-xs text-rose-500 py-6">অর্ডার লোড করতে সমস্যা হয়েছে।</p>`;
+            }
+        }
+
+        function loadAdminProducts() {
+            const container = document.getElementById('adminProductsContainer');
+            container.innerHTML = "";
+
+            products.forEach(p => {
+                container.innerHTML += `
+                    <div class="flex items-center justify-between bg-white p-3 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center space-x-3">
+                            <img src="${p.image}" class="w-12 h-12 object-cover rounded-xl">
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-800 line-clamp-1">${p.name}</h4>
+                                <span class="text-indigo-600 font-bold text-xs">${p.price}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <button onclick="openEditProduct(${p.id})" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 px-3 py-1.5 rounded-xl text-xs font-bold transition">এডিট</button>
+                            <button onclick="deleteProduct(${p.id})" class="bg-rose-50 text-rose-600 hover:bg-rose-100 px-3 py-1.5 rounded-xl text-xs font-bold transition">মুছুন</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function openAddProductModal() {
+            document.getElementById('adminProductFormTitle').innerText = "নতুন প্রডাক্ট যুক্ত করুন";
+            document.getElementById('adminProductForm').reset();
+            document.getElementById('editProductId').value = "";
+            document.getElementById('adminProductFormModal').classList.remove('hidden');
+        }
+
+        function openEditProduct(id) {
+            const p = products.find(prod => prod.id === id);
+            if(!p) return;
+            document.getElementById('adminProductFormTitle').innerText = "প্রোডাক্ট এডিট করুন";
+            document.getElementById('editProductId').value = p.id;
+            document.getElementById('adminProdName').value = p.name;
+            document.getElementById('adminProdCategory').value = p.category;
+            document.getElementById('adminProdCategoryName').value = p.categoryName;
+            document.getElementById('adminProdPriceNum').value = p.priceNum;
+            document.getElementById('adminProdPriceText').value = p.price;
+            document.getElementById('adminProdOldPrice').value = p.oldPrice || '';
+            document.getElementById('adminProdTag').value = p.tag || '';
+            document.getElementById('adminProdRating').value = p.rating || 30;
+            document.getElementById('adminProdImage').value = p.image;
+            document.getElementById('adminProdDesc').value = p.desc || '';
+            document.getElementById('adminProductFormModal').classList.remove('hidden');
+        }
+
+        function closeAdminProductFormModal() {
+            document.getElementById('adminProductFormModal').classList.add('hidden');
+        }
+
+        function saveAdminProduct(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editProductId').value;
+            const name = document.getElementById('adminProdName').value;
+            const category = document.getElementById('adminProdCategory').value;
+            const categoryName = document.getElementById('adminProdCategoryName').value;
+            const priceNum = Number(document.getElementById('adminProdPriceNum').value);
+            const price = document.getElementById('adminProdPriceText').value;
+            const oldPrice = document.getElementById('adminProdOldPrice').value;
+            const tag = document.getElementById('adminProdTag').value;
+            const rating = Number(document.getElementById('adminProdRating').value);
+            const image = document.getElementById('adminProdImage').value;
+            const desc = document.getElementById('adminProdDesc').value;
+
+            if(editId) {
+                let p = products.find(prod => prod.id == editId);
+                if(p) {
+                    p.name = name;
+                    p.category = category;
+                    p.categoryName = categoryName;
+                    p.priceNum = priceNum;
+                    p.price = price;
+                    p.oldPrice = oldPrice;
+                    p.tag = tag;
+                    p.rating = rating;
+                    p.image = image;
+                    p.desc = desc;
+                }
+            } else {
+                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+                products.unshift({
+                    id: newId,
+                    name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc, hasSize: false
+                });
+            }
+
+            closeAdminProductFormModal();
+            loadAdminProducts();
+            applyFilterAndSort();
+            alert('সফলভাবে সংরক্ষিত হয়েছে!');
+        }
+
+        function deleteProduct(id) {
+            if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি মুছে ফেলতে চান?')) {
+                products = products.filter(p => p.id !== id);
+                loadAdminProducts();
+                applyFilterAndSort();
+            }
+        }
+
+        checkUserAuthUI();
         displayProducts(products);
     </script>
 </body>
