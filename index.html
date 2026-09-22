@@ -1678,7 +1678,7 @@
             document.getElementById('adminProdPriceText').value = p.price;
             document.getElementById('adminProdOldPrice').value = p.oldPrice || "";
             document.getElementById('adminProdTag').value = p.tag || "";
-            document.getElementById('adminProdRating').value = p.rating || 35;
+            document.getElementById('adminProdRating').value = p.rating || 30;
             document.getElementById('adminProdImage').value = p.image;
             document.getElementById('adminProdDesc').value = p.desc || "";
 
@@ -1721,13 +1721,22 @@
                 }
                 alert('প্রোডাক্ট সফলভাবে আপডেট করা হয়েছে!');
             } else {
-                const newId = products.length > 0 ? Math.max(...products.map(i => i.id)) + 1 : 1;
-                products.unshift({
-                    id: newId,
-                    name, category, categoryName, priceNum, price, oldPrice, tag, rating, image, desc,
+                const newProduct = {
+                    id: Date.now(),
+                    name,
+                    category,
+                    categoryName,
+                    priceNum,
+                    price,
+                    oldPrice,
+                    tag,
+                    rating,
+                    image,
+                    desc,
                     hasSize: false
-                });
-                alert('নতুন প্রডাক্ট সফলভাবে যুক্ত করা হয়েছে!');
+                };
+                products.unshift(newProduct);
+                alert('নতুন প্রোডাক্ট সফলভাবে যুক্ত করা হয়েছে!');
             }
 
             closeAdminProductFormModal();
@@ -1737,16 +1746,17 @@
 
         function deleteProduct(productId) {
             if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি ডিলিট করতে চান?')) {
-                products = products.filter(i => i.id !== productId);
+                products = products.filter(item => item.id !== productId);
                 loadAdminProducts();
                 applyFilterAndSort();
-                alert('প্রোডাক্টটি ডিলিট করা হয়েছে!');
+                alert('প্রোডাক্ট ডিলিট করা হয়েছে!');
             }
         }
 
-        // Initialize application view
-        applyFilterAndSort();
-        checkUserAuthUI();
+        window.onload = function() {
+            checkUserAuthUI();
+            applyFilterAndSort();
+        };
     </script>
 </body>
 </html>
