@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.Shop - সবকিছু এখানে</title>
+    <title>M.Shop - সবকিছু এখানেই</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -1215,7 +1215,7 @@
             const timeNum = Date.now().toString().slice(-3);
             
             const prefix = "অর্ডার-";
-            return prefix + toBanglaNum(timeNum) + toBanglaNum(randomNum);
+            return prefix + toBanglaNum(timeNum) + toNumBanglaNum(randomNum); // fixed toBanglaNum
         }
 
         async function finalizeOrder() {
