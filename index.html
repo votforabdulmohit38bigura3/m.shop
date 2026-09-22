@@ -120,38 +120,52 @@
     </div>
 
     <header id="mainHeader" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="#" class="text-2xl font-black tracking-tight text-indigo-600 flex items-center space-x-2">
-                <div class="w-9 h-9 bg-indigo-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-indigo-200">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                </div>
-                <span>M.<span class="text-slate-900">Shop</span></span>
-            </a>
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="w-full md:w-auto flex items-center justify-between">
+                <a href="#" class="text-2xl font-black tracking-tight text-indigo-600 flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-indigo-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-indigo-200">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <span>M.<span class="text-slate-900">Shop</span></span>
+                </a>
 
-            <div class="hidden md:flex items-center w-5/12 border-2 border-indigo-600/30 focus-within:border-indigo-600 rounded-xl overflow-hidden transition shadow-sm">
-                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="w-full px-4 py-2.5 outline-none text-sm text-slate-700">
-                <button class="bg-indigo-600 text-white px-6 py-2.5 hover:bg-indigo-700 transition">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button onclick="toggleWishlistModal()" class="relative bg-rose-50 text-rose-600 p-2.5 rounded-2xl hover:bg-rose-100 transition focus:outline-none flex items-center">
+                        <i class="fa-solid fa-heart text-base"></i>
+                        <span id="wishlistCountMobile" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-extrabold shadow-sm">0</span>
+                    </button>
+                    <button onclick="toggleCart()" class="cart-icon-btn relative bg-indigo-50 text-indigo-600 p-2.5 rounded-2xl hover:bg-indigo-100 transition focus:outline-none flex items-center">
+                        <i class="fa-solid fa-cart-shopping text-base"></i>
+                        <span id="cartCountMobile" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-extrabold shadow-sm">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center w-full md:w-5/12 border-2 border-indigo-600/30 focus-within:border-indigo-600 rounded-xl overflow-hidden transition shadow-sm">
+                <input type="text" id="searchInput" onfocus="activateSearchMode()" oninput="searchProducts()" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="w-full px-4 py-2.5 outline-none text-sm text-slate-700">
+                <button onclick="clearSearch()" id="searchCloseBtn" class="bg-indigo-600 text-white px-5 py-2.5 hover:bg-indigo-700 transition">
+                    <i class="fa-solid fa-magnifying-glass" id="searchBtnIcon"></i>
                 </button>
             </div>
 
-            <div class="flex items-center space-x-3 md:space-x-4">
+            <div class="hidden md:flex items-center space-x-4">
                 <button onclick="toggleWishlistModal()" class="relative bg-rose-50 text-rose-600 p-3 rounded-2xl hover:bg-rose-100 transition focus:outline-none flex items-center space-x-2">
                     <i class="fa-solid fa-heart text-lg"></i>
-                    <span class="text-xs font-bold hidden sm:inline">পছন্দের তালিকা</span>
+                    <span class="text-xs font-bold">পছন্দের তালিকা</span>
                     <span id="wishlistCount" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[11px] w-5 h-5 rounded-full flex items-center justify-center font-extrabold shadow-sm">0</span>
                 </button>
 
                 <button onclick="toggleCart()" class="cart-icon-btn relative bg-indigo-50 text-indigo-600 p-3 rounded-2xl hover:bg-indigo-100 transition focus:outline-none flex items-center space-x-2">
                     <i class="fa-solid fa-cart-shopping text-lg"></i>
-                    <span class="text-xs font-bold hidden sm:inline">কার্ট</span>
+                    <span class="text-xs font-bold">কার্ট</span>
                     <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[11px] w-5 h-5 rounded-full flex items-center justify-center font-extrabold shadow-sm">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="container mx-auto px-4 my-4 relative">
+    <!-- হোমপেজ ব্যানার সেকশন -->
+    <section id="homeBannerSection" class="container mx-auto px-4 my-4 relative">
         <div id="sliderWrapper" 
              class="overflow-hidden rounded-3xl shadow-2xl relative select-none cursor-grab active:cursor-grabbing"
              ontouchstart="touchStart(event)" 
@@ -223,7 +237,8 @@
         </div>
     </section>
 
-    <div id="categoryBar" class="bg-white border-b border-slate-200 shadow-sm py-3 sticky top-[73px] z-30">
+    <!-- ক্যাটাগরি বার সেকশন -->
+    <div id="categoryBar" class="bg-white border-b border-slate-200 shadow-sm py-3 sticky top-[115px] md:top-[73px] z-30">
         <div class="container mx-auto px-4 flex items-center space-x-4 overflow-x-auto no-scrollbar whitespace-nowrap">
             <button onclick="filterCategory('all')" class="cat-btn flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-sm transition flex-shrink-0">
                 <i class="fa-solid fa-border-all"></i>
@@ -257,10 +272,10 @@
                 <i class="fa-solid fa-futbol text-purple-600"></i>
                 <span>স্পোর্টস ও আউটডোর</span>
             </button>
-            
         </div>
     </div>
 
+    <!-- প্রডাক্টস সেকশন -->
     <section id="products" class="container mx-auto px-4 mb-16 pt-4">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
             <div>
@@ -327,9 +342,9 @@
                 <span>সাবটোটাল:</span>
                 <span id="cartSubtotal" class="font-bold text-slate-900">৳ ০</span>
             </div>
-            <div class="flex justify-between mb-4 text-sm text-slate-600">
+            <div class="flex justify-between mb-2 text-sm text-slate-600">
                 <span>ডেলিভারি চার্জ:</span>
-                <span class="font-bold text-slate-900">৳ ৬০</span>
+                <span id="cartDeliveryChargeText" class="font-bold text-slate-900">৳ ৬০</span>
             </div>
             <div class="flex justify-between mb-6 text-base font-bold text-slate-900 border-t border-slate-200 pt-3">
                 <span>সর্বমোট:</span>
@@ -360,6 +375,13 @@
                         <span class="bg-slate-100 text-slate-600 text-sm font-bold px-3.5 py-2.5 border-r border-slate-200 select-none">+88</span>
                         <input type="text" id="buyerPhone" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="০১XXXXXXXXX" class="w-full px-3.5 py-2.5 text-sm outline-none">
                     </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ডেলিভারি এরিয়া নির্বাচন করুন *</label>
+                    <select id="deliveryArea" onchange="updateDeliveryCharge()" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-indigo-600 bg-white font-medium text-slate-700">
+                        <option value="inside">ঢাকার ভিতর (ডেলিভারি চার্জ: ৬০ টাকা)</option>
+                        <option value="outside">ঢাকার বাহিরে [সারাদেশ] (ডেলিভারি চার্জ: ১২০ টাকা)</option>
+                    </select>
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">ডেলিভারি ঠিকানা *</label>
@@ -394,6 +416,7 @@
                     <div class="text-xs text-slate-700 space-y-1">
                         <p><strong>নাম:</strong> <span id="reviewName"></span></p>
                         <p><strong>মোবাইল:</strong> <span id="reviewPhone"></span></p>
+                        <p><strong>এরিয়া:</strong> <span id="reviewAreaText"></span></p>
                         <p><strong>ঠিকানা:</strong> <span id="reviewAddress"></span></p>
                     </div>
                 </div>
@@ -412,7 +435,7 @@
                     </div>
                     <div class="flex justify-between text-slate-600">
                         <span>ডেলিভারি চার্জ:</span>
-                        <span class="font-bold">৳ ৬০</span>
+                        <span id="reviewDeliveryCharge" class="font-bold"></span>
                     </div>
                     <div class="flex justify-between text-sm font-bold text-slate-900 pt-1 border-t border-dashed border-slate-200">
                         <span>সর্বমোট প্রদেয়:</span>
@@ -430,6 +453,11 @@
         </div>
     </div>
 
+    <div id="loadingOverlay" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-[9999] hidden flex flex-col items-center justify-center">
+        <div class="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-white text-base font-bold tracking-wide">আপনার অর্ডারটি প্রসেস করা হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</p>
+    </div>
+
     <div id="orderSuccessPopup" class="popup-overlay">
         <div class="popup-box">
             <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
@@ -438,7 +466,6 @@
         </div>
     </div>
 
-    <!-- Firebase SDK স্ক্রিপ্ট (Type="module") -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -456,7 +483,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // গ্লোবালি ডাটাবেস ফাংশন ব্যবহারের জন্য উইন্ডোতে এসাইন করা হলো
         window.db = db;
         window.collection = collection;
         window.addDoc = addDoc;
@@ -481,7 +507,7 @@
             { id: 10, name: "পাথর বসানো ফ্যাশনেবল জুয়েলার্স সেট", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 850, price: "৳ ৮৫০", oldPrice: "", tag: "সেরা", rating: 29, hasSize: false, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80", desc: "বিয়ে বা উৎসবে পরার জন্য চমৎকার স্টোন ওয়ার্ক জুয়েলারি সেট।" },
 
             // --- Kids Fashion & Toys (5 Products) ---
-            { id: 11, name: "কিডস কটন প্রিন্টেড ফ্রক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "নতুন", rating: 40, hasSize: true, sizes: ["2-3 Years", "4-5 Years", "6-7 Years"], image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=500&q=80", desc: "ছোট সোনামণিটার জন্য আকর্ষণীয় ও আরামদায়ক সুতি কটন ফ্রক।" },
+            { id: 11, name: "কিডস কটন প্রিন্টেড ফ্রক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০ এবং", tag: "নতুন", rating: 40, hasSize: true, sizes: ["2-3 Years", "4-5 Years", "6-7 Years"], image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=500&q=80", desc: "ছোট সোনামণিটার জন্য আকর্ষণীয় ও আরামদায়ক সুতি কটন ফ্রক।" },
             { id: 12, name: "বেবি বয় সামার টি-শার্ট ও প্যান্ট সেট", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "হট সেল", rating: 52, hasSize: true, sizes: ["1-2 Years", "3-4 Years", "5-6 Years"], image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80", desc: "ছেলে বাচ্চাদের জন্য কালারফুল এবং সফট কাপড়ের ক্যাজুয়াল সেট।" },
             { id: 13, name: "রিমোট কন্ট্রোল রেসিং কার খেলনা", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 1250, price: "৳ ১,২৫০", oldPrice: "৳ ১,৬০০", tag: "জনপ্রিয়", rating: 60, hasSize: false, image: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?auto=format&fit=crop&w=500&q=80", desc: "বাচ্চাদের বুদ্ধিমত্তা ও বিনোদনের জন্য ফাস্ট রিমোট কন্ট্রোল কার।" },
             { id: 14, name: "প্লাশ টেডি বিয়ার সফট টয়", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "সেরা", rating: 71, hasSize: false, image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80", desc: "খুব নরম তুলতুলে বাচ্চাদের খেলার ও কোলের টেডি বিয়ার পুতুল।" },
@@ -612,6 +638,13 @@
         let selectedSize = '';
         let currentActiveCategory = 'all';
         let tempOrderData = {};
+        let deliveryFee = 60;
+
+        function updateDeliveryCharge() {
+            const area = document.getElementById('deliveryArea').value;
+            deliveryFee = (area === 'inside') ? 60 : 120;
+            updateCartUI();
+        }
 
         function displayProducts(items) {
             const grid = document.getElementById('productGrid');
@@ -656,6 +689,39 @@
             });
         }
 
+        // সার্চবারে ক্লিক করলে বা টাইপ করলে হোমপেজ ও ক্যাটাগরি বার লুকিয়ে সরাসরি প্রডাক্ট সেকশনে নিয়ে আসার ফাংশন
+        function activateSearchMode() {
+            document.getElementById('homeBannerSection').style.display = 'none';
+            document.getElementById('categoryBar').style.display = 'none';
+            
+            // সার্চ আইকন পরিবর্তন করে ক্রস (X) বা ক্লিয়ার বাটন দেখানো
+            document.getElementById('searchBtnIcon').classList.remove('fa-magnifying-glass');
+            document.getElementById('searchBtnIcon').classList.add('fa-xmark');
+
+            // স্ক্রোল করে সরাসরি প্রডাক্ট সেকশনে চলে যাওয়া যাতে স্ক্রোল করার প্রয়োজন না হয়
+            const productsSection = document.getElementById('products');
+            window.scrollTo({
+                top: productsSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+
+        // সার্চ রিসেট বা পরিষ্কার করার ফাংশন
+        function clearSearch() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput.value !== "") {
+                searchInput.value = "";
+                applyFilterAndSort();
+            } else {
+                // যদি ইনপুট খালি থাকে তবে ক্রস বাটনে ক্লিক করলে হোমপেজ ফিরিয়ে আনা
+                document.getElementById('homeBannerSection').style.display = 'block';
+                document.getElementById('categoryBar').style.display = 'block';
+                document.getElementById('searchBtnIcon').classList.remove('fa-xmark');
+                document.getElementById('searchBtnIcon').classList.add('fa-magnifying-glass');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
         function filterCategory(category) {
             currentActiveCategory = category;
             selectedSize = ''; 
@@ -694,6 +760,16 @@
         function applyFilterAndSort() {
             let items = currentActiveCategory === 'all' ? [...products] : products.filter(p => p.category === currentActiveCategory);
             
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (query !== "") {
+                items = items.filter(p => p.name.toLowerCase().includes(query) || p.categoryName.toLowerCase().includes(query));
+                // সার্চ শুরু হলেই স্বয়ংক্রিয়ভাবে হোমপেজ ও ক্যাটাগরি বার লুকিয়ে ফেলা
+                document.getElementById('homeBannerSection').style.display = 'none';
+                document.getElementById('categoryBar').style.display = 'none';
+                document.getElementById('searchBtnIcon').classList.remove('fa-magnifying-glass');
+                document.getElementById('searchBtnIcon').classList.add('fa-xmark');
+            }
+
             const sortVal = document.getElementById('sortSelect').value;
             if (sortVal === 'low-high') {
                 items.sort((a, b) => a.priceNum - b.priceNum);
@@ -719,10 +795,12 @@
         }
 
         function updateWishlistUI() {
-            document.getElementById('wishlistCount').innerText = wishlist.length;
+            const count = wishlist.length;
+            document.getElementById('wishlistCount').innerText = count;
+            document.getElementById('wishlistCountMobile').innerText = count;
             const container = document.getElementById('wishlistItemsContainer');
             
-            if (wishlist.length === 0) {
+            if (count === 0) {
                 container.innerHTML = `
                     <div class="text-center py-12 text-slate-400">
                         <i class="fa-regular fa-heart text-4xl mb-2 text-slate-200"></i>
@@ -837,17 +915,17 @@
         }
 
         function triggerCartAnimation() {
-            const cartIconBtn = document.querySelector('.cart-icon-btn');
-            cartIconBtn.classList.add('cart-animate');
-            setTimeout(() => {
-                cartIconBtn.classList.remove('cart-animate');
-            }, 400);
+            const cartIconBtns = document.querySelectorAll('.cart-icon-btn');
+            cartIconBtns.forEach(btn => {
+                btn.classList.add('cart-animate');
+                setTimeout(() => {
+                    btn.classList.remove('cart-animate');
+                }, 400);
+            });
         }
 
         function searchProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.categoryName.toLowerCase().includes(query));
-            displayProducts(filtered);
+            applyFilterAndSort();
         }
 
         function toggleCart() {
@@ -880,12 +958,15 @@
 
         function updateCartUI() {
             const container = document.getElementById('cartItemsContainer');
-            const cartCountBadge = document.getElementById('cartCount');
             const subtotalEl = document.getElementById('cartSubtotal');
+            const deliveryTextEl = document.getElementById('cartDeliveryChargeText');
             const totalEl = document.getElementById('cartTotal');
 
             let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            cartCountBadge.innerText = totalItems;
+            document.getElementById('cartCount').innerText = totalItems;
+            document.getElementById('cartCountMobile').innerText = totalItems;
+
+            deliveryTextEl.innerText = `৳ ${deliveryFee}`;
 
             if (cart.length === 0) {
                 container.innerHTML = `
@@ -895,7 +976,7 @@
                     </div>
                 `;
                 subtotalEl.innerText = '৳ ০';
-                totalEl.innerText = '৳ ৬০';
+                totalEl.innerText = `৳ ${deliveryFee}`;
                 return;
             }
 
@@ -925,7 +1006,7 @@
             });
 
             subtotalEl.innerText = `৳ ${subtotal.toLocaleString('bn-BD')}`;
-            let grandTotal = subtotal + 60;
+            let grandTotal = subtotal + deliveryFee;
             totalEl.innerText = `৳ ${grandTotal.toLocaleString('bn-BD')}`;
         }
 
@@ -948,6 +1029,9 @@
             e.preventDefault();
             const name = document.getElementById('buyerName').value;
             const phoneInput = document.getElementById('buyerPhone').value;
+            const areaSelect = document.getElementById('deliveryArea');
+            const areaVal = areaSelect.value;
+            const areaText = areaSelect.options[areaSelect.selectedIndex].text;
             const address = document.getElementById('buyerAddress').value;
 
             if(!name || !phoneInput || !address) {
@@ -961,10 +1045,11 @@
             }
 
             const phone = '+88' + phoneInput;
-            tempOrderData = { name, phone: phoneInput, address };
+            tempOrderData = { name, phone: phoneInput, areaVal, areaText, address };
 
             document.getElementById('reviewName').innerText = name;
             document.getElementById('reviewPhone').innerText = phone;
+            document.getElementById('reviewAreaText').innerText = areaText;
             document.getElementById('reviewAddress').innerText = address;
 
             renderReviewProducts();
@@ -982,7 +1067,8 @@
             if(cart.length === 0) {
                 reviewProductsContainer.innerHTML = `<p class="text-center text-xs text-slate-400 py-6">আপনার কার্টে কোনো প্রডাক্ট নেই!</p>`;
                 document.getElementById('reviewSubtotal').innerText = '৳ ০';
-                document.getElementById('reviewGrandTotal').innerText = '৳ ৬০';
+                document.getElementById('reviewDeliveryCharge').innerText = `৳ ${deliveryFee}`;
+                document.getElementById('reviewGrandTotal').innerText = `৳ ${deliveryFee}`;
                 return;
             }
 
@@ -1012,7 +1098,8 @@
             });
 
             document.getElementById('reviewSubtotal').innerText = `৳ ${subtotal.toLocaleString('bn-BD')}`;
-            document.getElementById('reviewGrandTotal').innerText = `৳ ${(subtotal + 60).toLocaleString('bn-BD')}`;
+            document.getElementById('reviewDeliveryCharge').innerText = `৳ ${deliveryFee}`;
+            document.getElementById('reviewGrandTotal').innerText = `৳ ${(subtotal + deliveryFee).toLocaleString('bn-BD')}`;
             updateCartUI();
         }
 
@@ -1039,6 +1126,8 @@
         function editCustomerInfo() {
             document.getElementById('buyerName').value = tempOrderData.name;
             document.getElementById('buyerPhone').value = tempOrderData.phone;
+            document.getElementById('deliveryArea').value = tempOrderData.areaVal;
+            updateDeliveryCharge();
             document.getElementById('buyerAddress').value = tempOrderData.address;
             
             closeReviewModal();
@@ -1057,25 +1146,25 @@
             return prefix + toBanglaNum(timeNum) + toBanglaNum(randomNum);
         }
 
-        // ফায়ারবেসে অর্ডার সেভ করার প্রধান ফাংশন
         async function finalizeOrder() {
             if(cart.length === 0) {
                 alert('আপনার কার্টে কোনো প্রডাক্ট নেই!');
                 return;
             }
 
+            document.getElementById('loadingOverlay').classList.remove('hidden');
+
             const uniqueOrderNo = generateUniqueBanglaOrderNumber();
             
-            // সাবটোটাল ও মোট হিসাব বের করা
             let subtotal = cart.reduce((sum, item) => sum + (item.priceNum * item.qty), 0);
-            let grandTotal = subtotal + 60;
+            let grandTotal = subtotal + deliveryFee;
 
-            // ফায়ারবেসে পাঠানোর জন্য অর্ডার অবজেক্ট তৈরি
             const orderData = {
                 orderNo: uniqueOrderNo,
                 customer: {
                     name: tempOrderData.name,
                     phone: '+88' + tempOrderData.phone,
+                    deliveryArea: tempOrderData.areaText,
                     address: tempOrderData.address
                 },
                 items: cart.map(item => ({
@@ -1086,17 +1175,17 @@
                     size: item.selectedSize || 'N/A'
                 })),
                 subtotal: subtotal,
-                deliveryCharge: 60,
+                deliveryCharge: deliveryFee,
                 grandTotal: grandTotal,
                 orderDate: new Date().toISOString()
             };
 
             try {
-                // ফায়ারবেস ডাটাবেসের 'orders' কালেকশনে ডাটা সেভ করা হচ্ছে
                 await window.addDoc(window.collection(window.db, "orders"), orderData);
                 console.log("Order successfully saved to Firebase!");
             } catch (error) {
                 console.error("Error adding order to Firebase: ", error);
+                document.getElementById('loadingOverlay').classList.add('hidden');
                 alert("দুঃখিত, অর্ডারটি ডাটাবেসে সংরক্ষণ করতে সমস্যা হয়েছে!");
                 return;
             }
@@ -1105,6 +1194,9 @@
             updateCartUI();
             closeReviewModal();
             document.getElementById('checkoutForm').reset();
+            deliveryFee = 60;
+
+            document.getElementById('loadingOverlay').classList.add('hidden');
 
             document.getElementById('orderSuccessContent').innerHTML = `
                 <p class="popup-message mb-2">
