@@ -164,10 +164,10 @@
         </div>
     </header>
 
-    <!-- হোমপেজ ব্যানার সেকশন -->
+    <!-- হোমপেজ ব্যানার সেকশন (প্রফেশনাল অপ্টিমাইজড হাইট ও লেআউট) -->
     <section id="homeBannerSection" class="container mx-auto px-4 my-4 relative">
         <div id="sliderWrapper" 
-             class="overflow-hidden rounded-3xl shadow-2xl relative select-none cursor-grab active:cursor-grabbing"
+             class="overflow-hidden rounded-3xl shadow-xl relative select-none cursor-grab active:cursor-grabbing"
              ontouchstart="touchStart(event)" 
              ontouchmove="touchMove(event)" 
              ontouchend="touchEnd(event)"
@@ -177,62 +177,104 @@
              onmouseleave="dragEnd(event)">
             
             <div id="sliderTrack" class="flex transition-transform duration-500 ease-out">
-                <div class="min-w-full bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 text-white p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 min-h-[280px]">
+                <!-- স্লাইড ১ -->
+                <div class="min-w-full bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
-                        <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block mb-3">⚡ M.Shop মেগা সিজন ডিসকাউন্ট ২০২৬</span>
-                        <h1 class="text-2xl md:text-4xl font-extrabold mb-3 leading-tight">স্মার্ট লাইফস্টাইলের জন্য প্রিমিয়াম প্রডাক্ট কালেকশন</h1>
-                        <p class="text-indigo-100/80 mb-6 text-xs md:text-sm leading-relaxed">সেরা মূল্যে ভেরিফাইড ব্র্যান্ডের পণ্য অর্ডার করুন ঘরে বসেই।</p>
-                        <a href="#products" class="bg-white text-indigo-900 font-bold px-7 py-3 rounded-2xl shadow-lg hover:bg-indigo-50 transition inline-block text-sm">কেনাকাটা শুরু করুন</a>
+                        <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">⚡ M.Shop মেগা সিজন ডিসকাউন্ট ২০২৬</span>
+                        <h1 class="text-xl md:text-3xl font-extrabold mb-2 leading-snug">স্মার্ট লাইফস্টাইলের জন্য প্রিমিয়াম প্রডাক্ট কালেকশন</h1>
+                        <p class="text-indigo-100/80 mb-4 text-xs md:text-sm leading-relaxed">সেরা মূল্যে ভেরিফাইড ব্র্যান্ডের পণ্য অর্ডার করুন ঘরে বসেই।</p>
+                        <a href="#products" class="bg-white text-indigo-900 font-bold px-6 py-2.5 rounded-xl shadow-md hover:bg-indigo-50 transition inline-block text-xs md:text-sm">কেনাকাটা শুরু করুন</a>
                     </div>
                     <div class="md:w-5/12 flex items-center justify-center space-x-3 pointer-events-none">
-                        <div class="w-32 h-36 md:w-40 md:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 transform -rotate-3">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform -rotate-3">
                             <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
                         </div>
-                        <div class="w-32 h-36 md:w-40 md:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 transform rotate-3 mt-4">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform rotate-3 mt-3">
                             <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
 
-                <div class="min-w-full bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 text-white p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 min-h-[280px]">
+                <!-- স্লাইড ২ -->
+                <div class="min-w-full bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
-                        <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block mb-3">🔥 ট্রেন্ডি ফ্যাশন কালেকশন</span>
-                        <h1 class="text-2xl md:text-4xl font-extrabold mb-3 leading-tight">আধুনিক স্টাইলে নিজেকে করুন আরও আকর্ষণীয়</h1>
-                        <p class="text-indigo-100/80 mb-6 text-xs md:text-sm leading-relaxed">মেনস ও উমেন্স ফ্যাশনে চলছে বিশেষ ছাড়, আজই লুফে নিন!</p>
-                        <a href="#products" class="bg-white text-indigo-900 font-bold px-7 py-3 rounded-2xl shadow-lg hover:bg-indigo-50 transition inline-block text-sm">কেনাকাটা শুরু করুন</a>
+                        <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">🔥 ট্রেন্ডি ফ্যাশন কালেকশন</span>
+                        <h1 class="text-xl md:text-3xl font-extrabold mb-2 leading-snug">আধুনিক স্টাইলে নিজেকে করুন আরও আকর্ষণীয়</h1>
+                        <p class="text-indigo-100/80 mb-4 text-xs md:text-sm leading-relaxed">মেনস ও উমেন্স ফ্যাশনে চলছে বিশেষ ছাড়, আজই লুফে নিন!</p>
+                        <a href="#products" class="bg-white text-indigo-900 font-bold px-6 py-2.5 rounded-xl shadow-md hover:bg-indigo-50 transition inline-block text-xs md:text-sm">কেনাকাটা শুরু করুন</a>
                     </div>
                     <div class="md:w-5/12 flex items-center justify-center space-x-3 pointer-events-none">
-                        <div class="w-32 h-36 md:w-40 md:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 transform -rotate-3">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform -rotate-3">
                             <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
                         </div>
-                        <div class="w-32 h-36 md:w-40 md:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 transform rotate-3 mt-4">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform rotate-3 mt-3">
                             <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
 
-                <div class="min-w-full bg-gradient-to-br from-purple-950 via-indigo-900 to-slate-900 text-white p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 min-h-[280px]">
+                <!-- স্লাইড ৩ -->
+                <div class="min-w-full bg-gradient-to-r from-purple-950 via-indigo-900 to-slate-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="md:w-7/12">
-                        <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block mb-3">🌟 ইলেকট্রনিক্স ও গ্যাজেট মেলা</span>
-                        <h1 class="text-2xl md:text-4xl font-extrabold mb-3 leading-tight">স্মার্ট লাইফের জন্য আধুনিক সব গ্যাজেট</h1>
-                        <p class="text-indigo-100/80 mb-6 text-xs md:text-sm leading-relaxed">ইয়ারবাড, স্মার্টওয়াচ এবং হোম অ্যাপ্লায়েন্সে দুর্দান্ত অফার।</p>
-                        <a href="#products" class="bg-white text-indigo-900 font-bold px-7 py-3 rounded-2xl shadow-lg hover:bg-indigo-50 transition inline-block text-sm">কেনাকাটা শুরু করুন</a>
+                        <span class="bg-indigo-500/40 border border-indigo-400/30 text-indigo-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">🌟 ইলেকট্রনিক্স ও গ্যাজেট মেলা</span>
+                        <h1 class="text-xl md:text-3xl font-extrabold mb-2 leading-snug">স্মার্ট লাইফের জন্য আধুনিক সব গ্যাজেট</h1>
+                        <p class="text-indigo-100/80 mb-4 text-xs md:text-sm leading-relaxed">ইয়ারবাড, স্মার্টওয়াচ এবং হোম অ্যাপ্লায়েন্সে দুর্দান্ত অফার।</p>
+                        <a href="#products" class="bg-white text-indigo-900 font-bold px-6 py-2.5 rounded-xl shadow-md hover:bg-indigo-50 transition inline-block text-xs md:text-sm">কেনাকাটা শুরু করুন</a>
                     </div>
                     <div class="md:w-5/12 flex items-center justify-center space-x-3 pointer-events-none">
-                        <div class="w-32 h-36 md:w-40 md:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 transform -rotate-3">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform -rotate-3">
                             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
                         </div>
-                        <div class="w-32 h-36 md:w-40 md:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 transform rotate-3 mt-4">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform rotate-3 mt-3">
                             <img src="https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- স্লাইড ৪: বিউটি ও স্কিনকেয়ার -->
+                <div class="min-w-full bg-gradient-to-r from-pink-950 via-rose-900 to-indigo-950 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="md:w-7/12">
+                        <span class="bg-pink-500/40 border border-pink-400/30 text-pink-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">💎 গ্লোয়িং বিউটি ও স্কিনকেয়ার</span>
+                        <h1 class="text-xl md:text-3xl font-extrabold mb-2 leading-snug">প্রাকৃতিক উপাদানে ত্বকের সঠিক যত্ন নিন</h1>
+                        <p class="text-pink-100/80 mb-4 text-xs md:text-sm leading-relaxed">সেরা ব্র্যান্ডের ফেসওয়াশ, সিরাম এবং মেকআপ পণ্যে আকর্ষণীয় ডিসকাউন্ট।</p>
+                        <a href="#products" class="bg-white text-rose-950 font-bold px-6 py-2.5 rounded-xl shadow-md hover:bg-pink-50 transition inline-block text-xs md:text-sm">কেনাকাটা শুরু করুন</a>
+                    </div>
+                    <div class="md:w-5/12 flex items-center justify-center space-x-3 pointer-events-none">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform -rotate-3">
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform rotate-3 mt-3">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- স্লাইড ৫: হোম গ্রোসারি ও ফুড -->
+                <div class="min-w-full bg-gradient-to-r from-amber-950 via-emerald-950 to-slate-900 text-white px-6 md:px-12 py-5 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="md:w-7/12">
+                        <span class="bg-amber-500/40 border border-amber-400/30 text-amber-200 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">🍯 অর্গানিক ও খাঁটি খাবার</span>
+                        <h1 class="text-xl md:text-3xl font-extrabold mb-2 leading-snug">পরিবারের সুস্বাস্থ্যের জন্য শতভাগ খাঁটি গ্রোসারি</h1>
+                        <p class="text-amber-100/80 mb-4 text-xs md:text-sm leading-relaxed">সুন্দরবনের মধু, খাঁটি ঘি ও প্রিমিয়াম ড্রাই ফ্রুটস অর্ডার করুন সহজেই।</p>
+                        <a href="#products" class="bg-white text-amber-950 font-bold px-6 py-2.5 rounded-xl shadow-md hover:bg-amber-50 transition inline-block text-xs md:text-sm">কেনাকাটা শুরু করুন</a>
+                    </div>
+                    <div class="md:w-5/12 flex items-center justify-center space-x-3 pointer-events-none">
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform -rotate-3">
+                            <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-24 h-28 md:w-32 md:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-white/20 transform rotate-3 mt-3">
+                            <img src="https://images.unsplash.com/photo-1631451095765-2c91c165e3dc?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="absolute bottom-3 left-0 right-0 flex justify-center items-center space-x-2 z-20 pointer-events-none">
-                <span class="dot h-2 w-6 bg-white rounded-full transition-all duration-300"></span>
-                <span class="dot h-2 w-2 bg-white/40 rounded-full transition-all duration-300"></span>
-                <span class="dot h-2 w-2 bg-white/40 rounded-full transition-all duration-300"></span>
+            <!-- স্লাইডার ডট ইন্ডিকেটর -->
+            <div class="absolute bottom-2 left-0 right-0 flex justify-center items-center space-x-1.5 z-20 pointer-events-none">
+                <span class="dot h-1.5 w-5 bg-white rounded-full transition-all duration-300"></span>
+                <span class="dot h-1.5 w-1.5 bg-white/40 rounded-full transition-all duration-300"></span>
+                <span class="dot h-1.5 w-1.5 bg-white/40 rounded-full transition-all duration-300"></span>
+                <span class="dot h-1.5 w-1.5 bg-white/40 rounded-full transition-all duration-300"></span>
+                <span class="dot h-1.5 w-1.5 bg-white/40 rounded-full transition-all duration-300"></span>
             </div>
         </div>
     </section>
@@ -271,6 +313,18 @@
             <button onclick="filterCategory('sports')" class="cat-btn flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-purple-50 text-slate-700 hover:text-purple-600 text-xs font-bold transition flex-shrink-0 border border-slate-200">
                 <i class="fa-solid fa-futbol text-purple-600"></i>
                 <span>স্পোর্টস ও আউটডোর</span>
+            </button>
+            <button onclick="filterCategory('books')" class="cat-btn flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-teal-50 text-slate-700 hover:text-teal-600 text-xs font-bold transition flex-shrink-0 border border-slate-200">
+                <i class="fa-solid fa-book text-teal-600"></i>
+                <span>বুকস ও স্টেশনারি</span>
+            </button>
+            <button onclick="filterCategory('grocery')" class="cat-btn flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-yellow-50 text-slate-700 hover:text-yellow-600 text-xs font-bold transition flex-shrink-0 border border-slate-200">
+                <i class="fa-solid fa-basket-shopping text-yellow-600"></i>
+                <span>গ্রোসারি ও ফুড</span>
+            </button>
+            <button onclick="filterCategory('family')" class="cat-btn flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-600 text-xs font-bold transition flex-shrink-0 border border-slate-200">
+                <i class="fa-solid fa-people-roof text-red-600"></i>
+                <span>ফ্যামিলি কালেকশন</span>
             </button>
         </div>
     </div>
@@ -492,58 +546,79 @@
 
     <script>
         const products = [
-            // --- Men's Fashion (5 Products) ---
+            // --- 1. Men's Fashion (5 Products) ---
             { id: 1, name: "প্রিমিয়াম ক্যাজুয়াল ফুল স্লিভ শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1200, price: "৳ ১,২০০", tag: "নতুন", rating: 32, hasSize: true, sizes: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80", desc: "আরামদায়ক কটন ফ্যাব্রিক দিয়ে তৈরি আকর্ষণীয় ক্যাজুয়াল শার্ট।" },
             { id: 2, name: "মেনস ক্লাসিক ফরমাল সুজ", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 2200, price: "৳ ২,২০০", oldPrice: "৳ ২,৬০০", tag: "হট সেল", rating: 28, hasSize: true, sizes: ["40", "41", "42", "43", "44"], image: "https://images.unsplash.com/photo-1533867617858-e7d97e0afd8b?auto=format&fit=crop&w=500&q=80", desc: "অফিস বা যেকোনো ফরমাল ইভেন্টের জন্য প্রিমিয়াম লেদার সুজ।" },
             { id: 3, name: "স্টাইলিশ ডেনিম জিন্স প্যান্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 1450, price: "৳ ১,৪৫০", oldPrice: "৳ ১,৮০০", tag: "১৫% ছাড়", rating: 45, hasSize: true, sizes: ["28", "30", "32", "34"], image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=500&q=80", desc: "আধুনিক ফিটিং ও টেকসই ডেনিম কাপড়ের স্টাইলিশ জিন্স।" },
             { id: 4, name: "কটন সামার টি-শার্ট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 550, price: "৳ ৫৫০", oldPrice: "", tag: "জনপ্রিয়", rating: 50, hasSize: true, sizes: ["M", "L", "XL", "XXL"], image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80", desc: "গরমের দিনে পরার জন্য অত্যন্ত আরামদায়ক ও সফট সুতি টি-শার্ট।" },
-            { id: 5, name: "লেদার জেন্টস ওয়ালেট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০ এবং", tag: "সেরা", rating: 38, hasSize: false, image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80", desc: "আসল চামড়ার তৈরি প্রিমিয়াম কোয়ালিটি ফোল্ডেবল ওয়ালেট।" },
+            { id: 5, name: "লেদার জেন্টস ওয়ালেট", category: "men", categoryName: "মেনস ফ্যাশন", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "সেরা", rating: 38, hasSize: false, image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80", desc: "আসল চামড়ার তৈরি প্রিমিয়াম কোয়ালিটি ফোল্ডেবল ওয়ালেট।" },
 
-            // --- Women's Fashion (5 Products) ---
+            // --- 2. Women's Fashion (5 Products) ---
             { id: 6, name: "ডিজিটাল প্রিন্ট সিল্ক থ্রি-পিস", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 1850, price: "৳ ১,৮৫০", oldPrice: "৳ ২,২০০", tag: "জনপ্রিয়", rating: 19, hasSize: true, sizes: ["Free Size", "Semi-Long"], image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=80", desc: "অপূর্ব ডিজিটাল প্রিন্টের মার্জিত ও প্রিমিয়াম কোয়ালিটি সিল্ক থ্রি-পিস।" },
             { id: 7, name: "এমব্রয়ডারি জর্জেট লং গাউন", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 2400, price: "৳ ২,৪০০", oldPrice: "৳ ৩,০০০", tag: "নতুন", rating: 25, hasSize: true, sizes: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=500&q=80", desc: "আকর্ষণীয় এমব্রয়ডারি কাজের আকর্ষণীয় পার্টি ওয়্যার জর্জেট গাউন।" },
             { id: 8, name: "সফট জর্জেট শাড়ি উইথ ব্লাউজ পিস", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 1550, price: "৳ ১,৫৫০", oldPrice: "", tag: "ছাড়", rating: 33, hasSize: false, image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=500&q=80", desc: "দৈনন্দিন ও হালকা অনুষ্ঠানে পরার উপযোগী আরামদায়ক সফট শাড়ি।" },
             { id: 9, name: "ডিজাইনার হ্যান্ড ব্যাগ", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 1100, price: "৳ ১,১০০", oldPrice: "৳ ১,৪০০", tag: "হট সেল", rating: 44, hasSize: false, image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80", desc: "আধুনিক ফ্যাশনেবল এবং টেকসই চামড়ার তৈরি উইমেন্স হ্যান্ড ব্যাগ।" },
             { id: 10, name: "পাথর বসানো ফ্যাশনেবল জুয়েলার্স সেট", category: "women", categoryName: "উমেন্স ফ্যাশন", priceNum: 850, price: "৳ ৮৫০", oldPrice: "", tag: "সেরা", rating: 29, hasSize: false, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80", desc: "বিয়ে বা উৎসবে পরার জন্য চমৎকার স্টোন ওয়ার্ক জুয়েলারি সেট।" },
 
-            // --- Kids Fashion & Toys (5 Products) ---
-            { id: 11, name: "কিডস কটন প্রিন্টেড ফ্রক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০ এবং", tag: "নতুন", rating: 40, hasSize: true, sizes: ["2-3 Years", "4-5 Years", "6-7 Years"], image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=500&q=80", desc: "ছোট সোনামণিটার জন্য আকর্ষণীয় ও আরামদায়ক সুতি কটন ফ্রক।" },
+            // --- 3. Kids & Toys (5 Products) ---
+            { id: 11, name: "কিডস কটন প্রিন্টেড ফ্রক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "নতুন", rating: 40, hasSize: true, sizes: ["2-3 Years", "4-5 Years", "6-7 Years"], image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=500&q=80", desc: "ছোট সোনামণিটার জন্য আকর্ষণীয় ও আরামদায়ক সুতি কটন ফ্রক।" },
             { id: 12, name: "বেবি বয় সামার টি-শার্ট ও প্যান্ট সেট", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "হট সেল", rating: 52, hasSize: true, sizes: ["1-2 Years", "3-4 Years", "5-6 Years"], image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80", desc: "ছেলে বাচ্চাদের জন্য কালারফুল এবং সফট কাপড়ের ক্যাজুয়াল সেট।" },
             { id: 13, name: "রিমোট কন্ট্রোল রেসিং কার খেলনা", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 1250, price: "৳ ১,২৫০", oldPrice: "৳ ১,৬০০", tag: "জনপ্রিয়", rating: 60, hasSize: false, image: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?auto=format&fit=crop&w=500&q=80", desc: "বাচ্চাদের বুদ্ধিমত্তা ও বিনোদনের জন্য ফাস্ট রিমোট কন্ট্রোল কার।" },
             { id: 14, name: "প্লাশ টেডি বিয়ার সফট টয়", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "সেরা", rating: 71, hasSize: false, image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80", desc: "খুব নরম তুলতুলে বাচ্চাদের খেলার ও কোলের টেডি বিয়ার পুতুল।" },
             { id: 15, name: "কিডস স্টাডি স্কুল ব্যাকপ্যাক", category: "kids", categoryName: "কিডস ও টয়েজ", priceNum: 890, price: "৳ ৮৯০", oldPrice: "৳ ১,১০০", tag: "ছাড়", rating: 35, hasSize: false, image: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=500&q=80", desc: "কার্টুন প্রিন্টযুক্ত ছোট সোনামণিদের স্কুল বা ভ্রমণের আকর্ষণীয় ব্যাগ।" },
 
-            // --- Electronics & Gadgets (5 Products) ---
+            // --- 4. Electronics & Gadgets (5 Products) ---
             { id: 16, name: "ব্লুটুথ টিডব্লিউএস ওয়্যারলেস ইয়ারবাড", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 1450, price: "৳ ১,৪৫০", oldPrice: "৳ ১,৮০০", tag: "১৫% ছাড়", rating: 48, hasSize: false, image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=80", desc: "হাই-কোয়ালিটি নয়েজ ক্যান্সেলিং এবং দীর্ঘস্থায়ী ব্যাটারি ব্যাকআপযুক্ত প্রিমিয়াম ইয়ারবাড।" },
             { id: 17, name: "থ্রি-ইন-ওয়ান মাল্টিফাংশনাল গ্যাজেট", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 990, price: "৳ ৯৯০", oldPrice: "", tag: "হট সেল", rating: 75, hasSize: false, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80", desc: "এক সাথে বহুমুখী কাজের সুবিধার জন্য আধুনিক মাল্টিফাংশনাল গ্যাজেট।" },
             { id: 18, name: "স্মার্ট ব্লুটুথ কলিং ওয়াচ", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 2500, price: "৳ ২,৫০০", oldPrice: "৳ ৩,২০০", tag: "নতুন", rating: 82, hasSize: false, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80", desc: "হেলথ ট্র্যাকিং এবং সরাসরি কল রিসিভ করার সুবিধা সম্বলিত স্মার্টওয়াচ।" },
-            { id: 19, name: "পোর্টেবল মিনি ব্লুটুথ স্পিকার", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 780, price: "৳ ৭৩০", oldPrice: "৳ ৯৫০", tag: "জনপ্রিয়", rating: 46, hasSize: false, image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80", desc: "চমৎকার বেস সাউন্ড এবং সহজে বহনযোগ্য মিনি ব্লুটুথ স্পিকার।" },
+            { id: 19, name: "পোর্টেবল মিনি ব্লুটুথ স্পিকার", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 730, price: "৳ ৭৩০", oldPrice: "৳ ৯৫০", tag: "জনপ্রিয়", rating: 46, hasSize: false, image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80", desc: "চমৎকার বেস সাউন্ড এবং সহজে বহনযোগ্য মিনি ব্লুটুথ স্পিকার।" },
             { id: 20, name: "ইউএসবি রিচার্জেবল টেবল ল্যাম্প", category: "electronics", categoryName: "ইলেকট্রনিক্স ও গ্যাজেট", priceNum: 620, price: "৳ ৬২০", oldPrice: "", tag: "সেরা", rating: 39, hasSize: false, image: "https://images.unsplash.com/photo-1534349762230-10cad6d63ab7?auto=format&fit=crop&w=500&q=80", desc: "চোখের সুরক্ষা প্রদানকারী টাচ কন্ট্রোল রিচার্জেবল স্টাডি ল্যাম্প।" },
 
-            // --- Home Appliances (5 Products) ---
+            // --- 5. Home Appliances (5 Products) ---
             { id: 21, name: "স্মার্ট হ্যান্ড ব্লেন্ডার ও চপার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 2150, price: "৳ ২,১৫০", oldPrice: "৳ ২,৫০০", tag: "১০% ছাড়", rating: 24, hasSize: false, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=500&q=80", desc: "রান্নার কাজ সহজ করতে অত্যন্ত শক্তিশালী ও টেকসই স্মার্ট ব্লেন্ডার।" },
             { id: 22, name: "ইলেকট্রিক মাল্টিপারপাস রাইস কুকার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 3200, price: "৳ ৩,২০০", oldPrice: "৳ ৩,৮০০", tag: "হট সেল", rating: 55, hasSize: false, image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80", desc: "খাবার গরম রাখা এবং দ্রুত রান্না করার প্রিমিয়াম ইলেকট্রিক কুকার।" },
             { id: 23, name: "পোর্টেবল ইউএসবি মিনি জুসার ব্লেন্ডার", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,৩০০", tag: "নতুন", rating: 43, hasSize: false, image: "https://images.unsplash.com/photo-1570222094114-d074f7e24555?auto=format&fit=crop&w=500&q=80", desc: "যেকোনো জায়গায় ফ্রেশ জুস তৈরি করার পোর্টেবল জুসার কাপ।" },
             { id: 24, name: "অটোমেটিক ইলেকট্রিক কেটলি", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 1150, price: "৳ ১,১৫০", tag: "জনপ্রিয়", rating: 62, hasSize: false, image: "https://images.unsplash.com/photo-1594807046599-155452e825a0?auto=format&fit=crop&w=500&q=80", desc: "দ্রুত পানি গরম করার স্টেইনলেস স্টিলের অটোমেটিক ইলেকট্রিক কেটলি।" },
             { id: 25, name: "ওয়াল মাউন্টেবল মাল্টি-পারপাস র‍্যাক", category: "home", categoryName: "হোম অ্যাপ্লায়েন্স", priceNum: 590, price: "৳ ৫৯০", oldPrice: "", tag: "সেরা", rating: 31, hasSize: false, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=500&q=80", desc: "ঘর গুছিয়ে রাখার জন্য সহজে দেয়ালে লাগানোর মতো প্লাস্টিক র‍্যাক।" },
 
-            // --- Health & Beauty (5 Products) ---
+            // --- 6. Health & Beauty (5 Products) ---
             { id: 26, name: "হার্বাল ব্রাইটনিং ফেসওয়াশ", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 450, price: "৳ ৪৫০", oldPrice: "", tag: "সেরা", rating: 56, hasSize: false, image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80", desc: "ত্বকের উজ্জ্বলতা বৃদ্ধি ও গভীর থেকে ময়লা পরিষ্কার করার ন্যাচারাল ফেসওয়াশ।" },
             { id: 27, name: "ভিটামিন সি ফেস সিরাম", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "নতুন", rating: 68, hasSize: false, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80", desc: "ত্বকের দাগ দূর করে দীপ্তিময় ও গ্লোয়িং লুক এনে দেয়।" },
             { id: 28, name: "অ্যালোভেরা সুদিং জেল", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 380, price: "৳ ৩৮০", oldPrice: "৳ ৫০০", tag: "জনপ্রিয়", rating: 90, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "প্রাকৃতিক অ্যালোভেরা নির্যাস সমৃদ্ধ ময়েশ্চারাইজিং সুদিং জেল।" },
-            { id: 29, name: "হেয়ার ফল কন্ট্রোল অর্গানিক শ্যাম্পু", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 680, price: "৳ ৬৮০", oldPrice: "৳ ৮০ এবং", tag: "হট সেল", rating: 47, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "চুল পড়া রোধ ও চুল সিল্কি করতে কার্যকরী ভেষজ শ্যাম্পু।" },
+            { id: 29, name: "হেয়ার ফল কন্ট্রোল অর্গানিক শ্যাম্পু", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 680, price: "৳ ৬৮০", oldPrice: "৳ ৮০০", tag: "হট সেল", rating: 47, hasSize: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80", desc: "চুল পড়া রোধ ও চুল সিল্কি করতে কার্যকরী ভেষজ শ্যাম্পু।" },
             { id: 30, name: "ম্যাট ফিনিশ লিপস্টিক ও মেকআপ কিট", category: "beauty", categoryName: "হেলথ ও বিউটি", priceNum: 990, price: "৳ ৯৯০", oldPrice: "৳ ১,৩০০", tag: "ছাড়", rating: 53, hasSize: false, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80", desc: "দীর্ঘস্থায়ী এবং ওয়াটারপ্রুফ প্রিমিয়াম কোয়ালিটি মেকআপ কিট।" },
 
-            // --- Sports & Outdoor (5 Products) ---
+            // --- 7. Sports & Outdoor (5 Products) ---
             { id: 31, name: "প্রিমিয়াম স্পোর্টস জিম ব্যাগ", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 1350, price: "৳ ১,৩৫০", oldPrice: "৳ ১,৬০০", tag: "ছাড়", rating: 41, hasSize: false, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80", desc: "জিম বা ট্রাভেলের জন্য ওয়াটারপ্রুফ ও স্টাইলিশ স্পোর্টস ব্যাগ।" },
             { id: 32, name: "প্রফেশনাল ফুটবল বল", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "জনপ্রিয়", rating: 58, hasSize: false, image: "https://images.unsplash.com/photo-1614632537456-7468770f715b?auto=format&fit=crop&w=500&q=80", desc: "মাঠে খেলার জন্য অত্যন্ত মজবুত ও টেকসই চামড়ার ফুটবল।" },
             { id: 33, name: "অ্যান্টি-স্লিপ ফিজিক্যাল এক্সারসাইজ ইয়োগা ম্যাট", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 890, price: "৳ ৮৯০", oldPrice: "৳ ১,১০০", tag: "নতুন", rating: 36, hasSize: false, image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf297c?auto=format&fit=crop&w=500&q=80", desc: "ব্যায়াম ও ফিটনেসের জন্য আরামদায়ক স্লিপ-প্রুফ ইয়োগা ম্যাট।" },
             { id: 34, name: "স্টেইনলেস স্টিল স্পোর্টস ওয়াটার বোটল", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 550, price: "৳ ৫৫০", oldPrice: "", tag: "সেরা", rating: 49, hasSize: false, image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=80", desc: "দীর্ঘক্ষণ পানি ঠাণ্ডা বা গরম রাখার ইনসুলেটেড স্পোর্টস বোতল।" },
-            { id: 35, name: "ফিটনেস রিস্ট ব্যান্ড ও হ্যান্ড গ্রিপ", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 420, price: "৳ ৪২০", oldPrice: "৳ ৬০০", tag: "হট সেল", rating: 30, hasSize: false, image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80", desc: "হাতের পেশী শক্তিশালী করার জন্য জিম হ্যান্ড গ্রিপ এক্সারসাইজার।" }
+            { id: 35, name: "ফিটনেস রিস্ট ব্যান্ড ও হ্যান্ড গ্রিপ", category: "sports", categoryName: "স্পোর্টস ও আউটডোর", priceNum: 420, price: "৳ ৪২০", oldPrice: "৳ ৬০০", tag: "হট সেল", rating: 30, hasSize: false, image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80", desc: "হাতের পেশী শক্তিশালী করার জন্য জিম হ্যান্ড গ্রিপ এক্সারসাইজার।" },
+
+            // --- 8. Books & Stationery (5 Products) ---
+            { id: 36, name: "বেস্টসেলার মো্টিভেশনাল উপন্যাস বই", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 350, price: "৳ ৩৫০", oldPrice: "৳ ৪৫০", tag: "বেস্টসেলার", rating: 88, hasSize: false, image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=500&q=80", desc: "মনের খোরাক ও জীবন বদলানোর অনুপ্রেরণামূলক চমৎকার একটি বই।" },
+            { id: 37, name: "প্রিমিয়াম হার্ডকভার নোটবুক ও ডায়েরি", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 280, price: "৳ ২৮০", oldPrice: "৳ ৩৫০", tag: "নতুন", rating: 45, hasSize: false, image: "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=500&q=80", desc: "অফিস বা পড়াশোনার নোট নেওয়ার জন্য প্রিমিয়াম পেপারের ডায়েরি।" },
+            { id: 38, name: "কালারফুল জেল পেন সেট (১০ পিস)", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 220, price: "৳ ২২০", oldPrice: "", tag: "জনপ্রিয়", rating: 64, hasSize: false, image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=500&q=80", desc: "খুব স্মুথ লেখার উপযোগী রেইনবো কালার জেল কলমের সেট।" },
+            { id: 39, name: "আর্ট ও স্কেচিং কালার পেন্সিল বক্স", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 490, price: "৳ ৪৯০", oldPrice: "৳ ৬০০", tag: "হট সেল", rating: 51, hasSize: false, image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80", desc: "ড্রয়িং এবং স্কেচ করার জন্য ২৪ রঙের প্রফেশনাল কালার পেন্সিল।" },
+            { id: 40, name: "স্টাডি ডেস্ক অর্গানাইজার বক্স", category: "books", categoryName: "বুকস ও স্টেশনারি", priceNum: 390, price: "৳ ৩৯০", oldPrice: "৳ ৫০০", tag: "সেরা", rating: 37, hasSize: false, image: "https://images.unsplash.com/photo-1585336261022-682e293cb0fe?auto=format&fit=crop&w=500&q=80", desc: "টেবিল গোছালো রাখতে কলম ও স্টেশনারি রাখার মাল্টিপারপাস বক্স।" },
+
+            // --- 9. Grocery & Food (5 Products) ---
+            { id: 41, name: "অর্গানিক সুন্দরবনের মধু (৫০০ গ্রাম)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "খাঁটি", rating: 95, hasSize: false, image: "https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=500&q=80", desc: "বনের ফুলের খাঁটি ও ভেজালমুক্ত পুষ্টিকর প্রাকৃতিক মধু।" },
+            { id: 42, name: "প্রিমিয়াম প্রিমিয়াম ঘি (৫০০ মিলি)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 850, price: "৳ ৮৫০", oldPrice: "৳ ১,০০০", tag: "জনপ্রিয়", rating: 82, hasSize: false, image: "https://images.unsplash.com/photo-1631451095765-2c91c165e3dc?auto=format&fit=crop&w=500&q=80", desc: "গাভীর খাঁটি দুধের তৈরি সুগন্ধযুক্ত ও সুস্বাদু ঐতিহ্যবাহী ঘি।" },
+            { id: 43, name: "কাজুবাদাম ও পেস্তাবাদাম মিক্স (২৫০ গ্রাম)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 480, price: "৳ ৪৮০", oldPrice: "৳ ৬০০", tag: "স্বাস্থ্যকর", rating: 77, hasSize: false, image: "https://images.unsplash.com/photo-1524593166156-312f362cada0?auto=format&fit=crop&w=500&q=80", desc: "স্বাস্থ্য সুরক্ষায় প্রিমিয়াম কোয়ালিটির টাটকা এবং ক্রাঞ্চি বাদাম।" },
+            { id: 44, name: "এক্সট্রা ভার্জিন অলিভ অয়েল (৫০০ মিলি)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 950, price: "৳ ৯৫০", oldPrice: "৳ ১,২০০", tag: "আমদানীকৃত", rating: 49, hasSize: false, image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=500&q=80", desc: "রান্না ও ত্বকের যত্নে ব্যবহারের জন্য ১০০% পিওর অলিভ অয়েল।" },
+            { id: 45, name: "প্রিমিয়াম ব্ল্যাক টি (চা পাতা - ৪০০ গ্রাম)", category: "grocery", categoryName: "গ্রোসারি ও ফুড", priceNum: 320, price: "৳ ৩২০", oldPrice: "", tag: "সেরা", rating: 53, hasSize: false, image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80", desc: "সতেজ ও চমৎকার ফ্লেভারের রিফ্রেশিং প্রিমিয়াম চা পাতা।" },
+
+            // --- 10. Family Collection (5 Products) ---
+            { id: 46, name: "ফ্যামিলি ম্যাচিং প্রিন্টেড উৎসব পোশাক সেট", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 2990, price: "৳ ২,৯৯০", oldPrice: "৳ ৩,৫০০০", tag: "নতুন", rating: 65, hasSize: true, sizes: ["M", "L", "XL", "Family Combo"], image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=500&q=80", desc: "পরিবারের সবার সাথে মিলিয়ে পরার আকর্ষণীয় এবং আরামদায়ক ম্যাচিং সেট।" },
+            { id: 47, name: "মাইল্ড ফ্যামিলি কেয়ার অর্গানিক বডি লোশন", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 650, price: "৳ ৬৫০", oldPrice: "৳ ৮০০", tag: "জনপ্রিয়", rating: 80, hasSize: false, image: "https://images.unsplash.com/photo-1608248597359-28c460775586?auto=format&fit=crop&w=500&q=80", desc: "ছোট-বড় সবার ত্বকের সুরক্ষায় নিরাপদ ও ময়েশ্চারাইজিং বডি লোশন।" },
+            { id: 48, name: "ফ্যামিলি সাইজ সফট কমফর্টার ও বেডশিট সেট", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 1850, price: "৳ ১,৮৫০", oldPrice: "৳ ২,৩০০", tag: "সেরা", rating: 91, hasSize: false, image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80", desc: "পুরো পরিবারের আরামদায়ক ঘুমের জন্য প্রিমিয়াম কোয়ালিটি বেডশিট ও কমফর্টার।" },
+            { id: 49, name: "পারিবারিক আড্ডার প্রিমিয়াম স্ন্যাক্স ও কুকিজ বক্স", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 550, price: "৳ ৫৫০", oldPrice: "৳ ৭০০", tag: "হট সেল", rating: 73, hasSize: false, image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80", desc: "বিকালে ফ্যামিলি টাইম উপভোগ করার সুস্বাদু কুকিজ ও স্ন্যাক্স বক্স।" },
+            { id: 50, name: "কম্প্যাক্ট ফ্যামিলি ফাস্ট ফার্স্ট এইড কিট বক্স", category: "family", categoryName: "ফ্যামিলি কালেকশন", priceNum: 790, price: "৳ ৭৯০", oldPrice: "৳ ১,০০০", tag: "প্রয়োজনীয়", rating: 88, hasSize: false, image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80", desc: "পরিবারের জরুরি স্বাস্থ্য সুরক্ষায় প্রয়োজনীয় ফার্স্ট এইড ওষুধ ও ব্যান্ডেজ বক্স।" }
         ];
 
         let currentSlide = 0;
-        const totalSlides = 3;
+        const totalSlides = 5;
         let slideInterval;
         let startX = 0;
         let currentX = 0;
@@ -556,11 +631,11 @@
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
-                    dot.classList.remove('w-2', 'bg-white/40');
-                    dot.classList.add('w-6', 'bg-white');
+                    dot.classList.remove('w-1.5', 'bg-white/40');
+                    dot.classList.add('w-5', 'bg-white');
                 } else {
-                    dot.classList.remove('w-6', 'bg-white');
-                    dot.classList.add('w-2', 'bg-white/40');
+                    dot.classList.remove('w-5', 'bg-white');
+                    dot.classList.add('w-1.5', 'bg-white/40');
                 }
             });
         }
@@ -689,16 +764,13 @@
             });
         }
 
-        // সার্চবারে ক্লিক করলে বা টাইপ করলে হোমপেজ ও ক্যাটাগরি বার লুকিয়ে সরাসরি প্রডাক্ট সেকশনে নিয়ে আসার ফাংশন
         function activateSearchMode() {
             document.getElementById('homeBannerSection').style.display = 'none';
             document.getElementById('categoryBar').style.display = 'none';
             
-            // সার্চ আইকন পরিবর্তন করে ক্রস (X) বা ক্লিয়ার বাটন দেখানো
             document.getElementById('searchBtnIcon').classList.remove('fa-magnifying-glass');
             document.getElementById('searchBtnIcon').classList.add('fa-xmark');
 
-            // স্ক্রোল করে সরাসরি প্রডাক্ট সেকশনে চলে যাওয়া যাতে স্ক্রোল করার প্রয়োজন না হয়
             const productsSection = document.getElementById('products');
             window.scrollTo({
                 top: productsSection.offsetTop - 80,
@@ -706,14 +778,12 @@
             });
         }
 
-        // সার্চ রিসেট বা পরিষ্কার করার ফাংশন
         function clearSearch() {
             const searchInput = document.getElementById('searchInput');
             if (searchInput.value !== "") {
                 searchInput.value = "";
                 applyFilterAndSort();
             } else {
-                // যদি ইনপুট খালি থাকে তবে ক্রস বাটনে ক্লিক করলে হোমপেজ ফিরিয়ে আনা
                 document.getElementById('homeBannerSection').style.display = 'block';
                 document.getElementById('categoryBar').style.display = 'block';
                 document.getElementById('searchBtnIcon').classList.remove('fa-xmark');
@@ -733,7 +803,10 @@
                 'electronics': 'ইলেকট্রনিক্স ও গ্যাজেট',
                 'home': 'হোম অ্যাপ্লায়েন্স',
                 'beauty': 'হেলথ ও বিউটি',
-                'sports': 'স্পোর্টস ও আউটডোর'
+                'sports': 'স্পোর্টস ও আউটডোর',
+                'books': 'বুকস ও স্টেশনারি',
+                'grocery': 'গ্রোসারি ও ফুড',
+                'family': 'ফ্যামিলি কালেকশন'
             };
             
             document.getElementById('activeCategoryName').innerText = titleMap[category] || 'ফলাফল';
@@ -763,7 +836,6 @@
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             if (query !== "") {
                 items = items.filter(p => p.name.toLowerCase().includes(query) || p.categoryName.toLowerCase().includes(query));
-                // সার্চ শুরু হলেই স্বয়ংক্রিয়ভাবে হোমপেজ ও ক্যাটাগরি বার লুকিয়ে ফেলা
                 document.getElementById('homeBannerSection').style.display = 'none';
                 document.getElementById('categoryBar').style.display = 'none';
                 document.getElementById('searchBtnIcon').classList.remove('fa-magnifying-glass');
