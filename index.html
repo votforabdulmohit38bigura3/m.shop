@@ -1744,7 +1744,7 @@
             applyFilterAndSort();
         }
 
-        function deleteProduct(productId) {
+                function deleteProduct(productId) {
             if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি ডিলিট করতে চান?')) {
                 products = products.filter(item => item.id !== productId);
                 loadAdminProducts();
@@ -1752,11 +1752,6 @@
                 alert('প্রোডাক্ট ডিলিট করা হয়েছে!');
             }
         }
-
-                window.onload = function() {
-            checkUserAuthUI();
-            applyFilterAndSort();
-        };
 
         function saveAdminProduct(e) {
             e.preventDefault();
@@ -1811,14 +1806,10 @@
             applyFilterAndSort();
         }
 
-        function deleteProduct(productId) {
-            if(confirm('আপনি কি নিশ্চিতভাবে এই প্রডাক্টটি ডিলিট করতে চান?')) {
-                products = products.filter(item => item.id !== productId);
-                loadAdminProducts();
-                applyFilterAndSort();
-                alert('প্রোডাক্ট ডিলিট করা হয়েছে!');
-            }
-        }
+        window.onload = function() {
+            checkUserAuthUI();
+            applyFilterAndSort();
+        };
     </script>
 </body>
 </html>
